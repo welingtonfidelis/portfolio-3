@@ -1,0 +1,401 @@
+import { Trans, useTranslation } from "react-i18next";
+import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
+import { Select } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
+import { ProjectInterface } from "../../domains/Project.ts";
+import {
+  AboutSection,
+  AboutSectionContent,
+  AboutSectionDescription,
+  BannerSection,
+  ContactSection,
+  Container,
+  FaBarsIcon,
+  JobSection,
+  JobSectionContainer,
+  MainContent,
+  MenuLanguage,
+  MenuSections,
+  MenuTheme,
+  NavigateContent,
+  ProfileContent,
+  ProjectSection,
+  ProjectSectionContainer,
+  SectionResume,
+  SectionTitle,
+  SocialContent,
+  TopBarContent,
+} from "./styles.ts";
+import { Button } from "../../components/button/index.tsx";
+import { ProjectDetail } from "../../components/projectDetail/index.tsx";
+import { JobDetail } from "../../components/jobDetail/index.tsx";
+import { JobInterface } from "../../domains/Job.ts";
+
+const { CURRICULUM } = ApplicationRoutes;
+
+export const Home = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  //   const languageOnRedux = useSelector(
+  //     (state: { language: LanguageInterface }) => state.language
+  //   );
+  //   const themeOnRedux = useSelector(
+  //     (state: { theme: ThemeInterface }) => state.theme
+  //   );
+
+  //   useEffect(() => {
+  //     const { isDarkTheme } = themeOnRedux;
+  //     const body = document.querySelector("body")!;
+
+  //     if (isDarkTheme && !body.classList.contains("dark")) {
+  //       body.classList.add("dark");
+  //     } else body.classList.remove("dark");
+  //   }, [themeOnRedux]);
+
+  const handleNavigation = () => {
+    // if (window.innerWidth <= 900) {
+    //   const navigation = document.querySelector(".navigation")!;
+    //   navigation.classList.toggle("active");
+    // }
+  };
+
+  const handleShowNavigationMenu = () => {
+    const toggle = document.querySelector(".toggle")!;
+    const topbar = document.querySelector(".topbar")!;
+    const navigation = document.querySelector(".navigation")!;
+    const main = document.querySelector(".main")!;
+
+    toggle.classList.toggle("active");
+    topbar.classList.toggle("active");
+    navigation.classList.toggle("active");
+    main.classList.toggle("active");
+  };
+
+  //   const handleShowCarouselImage = (title: string, images: string[]) => {
+  //     setShowCarouselImage({
+  //       title,
+  //       images,
+  //       visible: true,
+  //     });
+  //   };
+
+  //   const handleCloseCarouselImage = () => {
+  //     setShowCarouselImage({
+  //       title: "",
+  //       images: [],
+  //       visible: false,
+  //     });
+  //   };
+
+  //   const handleSwitchTheme = (isDark: boolean) => {
+  //     dispatch(changeTheme({ isDarkTheme: isDark }));
+  //     setCookies("dark_theme", isDark);
+  //   };
+
+  //   const handleSendEmail = async (values: any) => {
+  //     if (!mailLoading) {
+  //       setMailLoading(true);
+
+  //       try {
+  //         const { name, email, message } = values;
+  //         const subject = `Contact from portfolio - ${name}`;
+  //         const treatedMessage = (message + "").replace(
+  //           /(?:\r\n|\r|\n)/g,
+  //           "<br>"
+  //         );
+
+  //         const { data } = await axios.post("./api/mail", {
+  //           email,
+  //           subject,
+  //           message: treatedMessage,
+  //         });
+
+  //         if (data.ok) {
+  //           toast.success(t("contact.success_send"), { autoClose: 7000 });
+
+  //           form.resetFields();
+  //         }
+  //       } catch (error) {
+  //         toast.error(t("contact.error_send"), {
+  //           autoClose: false,
+  //         });
+  //       }
+
+  //       setMailLoading(false);
+  //     }
+  //   };
+
+  //   const handleEasterEgg = () => {
+  //     const count = easterEgg.count + 1;
+
+  //     switch (count) {
+  //       case 1:
+  //         setEasterEgg({ count, text: "Re" });
+  //         break;
+
+  //       case 2:
+  //         setEasterEgg({ count, text: "Rela" });
+  //         break;
+
+  //       case 3:
+  //         setEasterEgg({ count, text: "Relax" });
+  //         break;
+
+  //       default:
+  //         Router.push("/easterEgg");
+  //         break;
+  //     }
+  //   };
+
+  //   const handleChangeLanguage = (language: string) => {
+  //     dispatch(changeLanguage({ language }));
+  //     setCookies("language", language);
+  //   };
+
+  return (
+    <>
+      <Container>
+        <NavigateContent>
+          <MenuSections>
+            <a href="#banner" onClick={handleNavigation}>
+              {t("navigation_menu.home")}
+            </a>
+            <a href="#about" onClick={handleNavigation}>
+              {t("navigation_menu.about")}
+            </a>
+
+            <a href="#services" onClick={handleNavigation}>
+              {t("navigation_menu.services")}
+            </a>
+
+            <a href="#projects" onClick={handleNavigation}>
+              {t("navigation_menu.projects")}
+            </a>
+
+            <a href="#contact" onClick={handleNavigation}>
+              {t("navigation_menu.contact")}
+            </a>
+          </MenuSections>
+
+          <MenuLanguage className="language-switch">
+            {/* <Select
+          value={languageOnRedux.language}
+          onChange={handleChangeLanguage}
+          >
+            <Select.Option value="pt">
+              <img
+                src={"/images/brazil.png"}
+                alt="Bandeira do Brasil"
+                width={30}
+                height={30}
+              />
+              <span>Português</span>
+            </Select.Option>
+
+            <Select.Option value="en">
+              <img
+                src={"/images/eua.png"}
+                alt="EUA Flag"
+                width={30}
+                height={30}
+              />
+              <span>English</span>
+            </Select.Option>
+          </Select> */}
+
+            <Select placeholder="Select option">
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </Select>
+          </MenuLanguage>
+
+          <MenuTheme>
+            <Select placeholder="Select option">
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </Select>
+          </MenuTheme>
+
+          {/* <div
+          className="theme-switch"
+          onClick={() => handleSwitchTheme(!themeOnRedux.isDarkTheme)}
+        >
+          {themeOnRedux.isDarkTheme ? (
+            <>
+              <FaSun /> <span>{t("theme_switch.light")}</span>
+            </>
+          ) : (
+            <>
+              <FaMoon /> <span>{t("theme_switch.dark")}</span>
+            </>
+          )}
+        </div> */}
+        </NavigateContent>
+
+        <MainContent>
+          <TopBarContent>
+            <a href="#banner">{t("top_bar_menu.title")}</a>
+
+            <FaBarsIcon onClick={handleShowNavigationMenu} />
+          </TopBarContent>
+
+          <BannerSection id="banner">
+            <ProfileContent>
+              {/* <div> */}
+              <img
+                loading="lazy"
+                src="/public/images/user_1.jpg"
+                alt="User profile-1"
+              />
+              {/* </div> */}
+
+              <h3>Welington Fidelis de Sousa</h3>
+              <p>{t("about_me.office")}</p>
+              <Button
+                title={t("about_me.view_cv")}
+                onClick={() => navigate(CURRICULUM)}
+              />
+            </ProfileContent>
+
+            <SocialContent>
+              <a
+                href="https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127"
+                target="_blank"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href="https://www.instagram.com/fideliswelington/"
+                target="_blank"
+              >
+                <FaInstagram />
+              </a>
+
+              <a href="https://twitter.com/welingtonfsousa" target="_blank">
+                <FaTwitter />
+              </a>
+
+              <a href="https://github.com/welingtonfidelis" target="_blank">
+                <FaGithub />
+              </a>
+            </SocialContent>
+          </BannerSection>
+
+          <AboutSection id="about">
+            <SectionTitle>{t("about_me.title")}</SectionTitle>
+
+            <AboutSectionContent>
+              <AboutSectionDescription>
+                <Trans i18nKey="about_me.description" />
+              </AboutSectionDescription>
+
+              <div>
+                <img src="/public/images/user_2.jpg" alt="User profile-2" />
+              </div>
+            </AboutSectionContent>
+          </AboutSection>
+
+          <JobSection id="services" className="services adjust">
+            <SectionTitle>{t("services.title")}</SectionTitle>
+            <SectionResume>{t("services.description")}</SectionResume>
+
+            <JobSectionContainer>
+              {(
+                t("services.list", {
+                  returnObjects: true,
+                }) as JobInterface[]
+              ).map((item, index) => (
+                <JobDetail job={item} key={index} />
+              ))}
+            </JobSectionContainer>
+          </JobSection>
+
+          <ProjectSection id="projects">
+            <SectionTitle>{t("projects.title")}</SectionTitle>
+            <SectionResume>{t("projects.description")}</SectionResume>
+
+            <ProjectSectionContainer>
+              {(
+                t("projects.list", {
+                  returnObjects: true,
+                }) as ProjectInterface[]
+              ).map((item, index) => (
+                <ProjectDetail project={item} key={index} />
+              ))}
+            </ProjectSectionContainer>
+          </ProjectSection>
+
+          <ContactSection id="contact" className="contact adjust">
+            <div className="title">
+              <h2>{t("contact.title")}</h2>
+              <p>{t("contact.description")}</p>
+            </div>
+
+            {/* <Form
+            initialValues={initialFormValues}
+            form={form}
+            onFinish={handleSendEmail}
+            className="contact-form"
+          >
+            <div className="contact-form">
+              <div className="row">
+                <Form.Item
+                  name="name"
+                  rules={[
+                    { required: true, message: t("contact.input_error_name") },
+                  ]}
+                >
+                  <input type="text" placeholder={t("contact.input_name")} />
+                </Form.Item>
+                <Form.Item
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      type: "email",
+                      message: t("contact.input_error_email"),
+                    },
+                  ]}
+                >
+                  <input type="text" placeholder={t("contact.input_email")} />
+                </Form.Item>
+              </div>
+              <div className="row-2">
+                <Form.Item
+                  name="message"
+                  rules={[
+                    {
+                      required: true,
+                      message: t("contact.input_error_message"),
+                    },
+                  ]}
+                >
+                  <textarea placeholder={t("contact.input_message")}></textarea>
+                </Form.Item>
+              </div>
+              <div className="btn row-2" onClick={() => form.submit()}>
+                {mailLoading ? (
+                  <AiOutlineLoading className="rotate-center" />
+                ) : (
+                  <span>{t("contact.button_send")}</span>
+                )}
+              </div>
+            </div>
+          </Form> */}
+          </ContactSection>
+
+          {/* <div className="easter-egg" onClick={handleEasterEgg}>
+          {easterEgg.text}
+        </div> */}
+        </MainContent>
+
+        {/* <ToastContainer /> */}
+      </Container>
+    </>
+  );
+};
