@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "react-i18next";
 import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
-import { Select } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Menu, MenuButton, MenuItem, MenuList, Select } from "@chakra-ui/react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
 import { ProjectInterface } from "../../domains/Project.ts";
 import {
@@ -16,6 +16,8 @@ import {
   JobSectionContainer,
   MainContent,
   MenuLanguage,
+  MenuLanguageContent,
+  MenuSectionItem,
   MenuSections,
   MenuTheme,
   NavigateContent,
@@ -31,35 +33,33 @@ import { Button } from "../../components/button/index.tsx";
 import { ProjectDetail } from "../../components/projectDetail/index.tsx";
 import { JobDetail } from "../../components/jobDetail/index.tsx";
 import { JobInterface } from "../../domains/Job.ts";
+import { preferencesStore } from "../../store/preferences/index.ts";
+import { Language } from "../../enum/language.ts";
 
 const { CURRICULUM } = ApplicationRoutes;
 
 export const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { hash: urlHash } = useLocation();
+  const { language, updateLanguage } = preferencesStore();
 
-  //   const languageOnRedux = useSelector(
-  //     (state: { language: LanguageInterface }) => state.language
-  //   );
-  //   const themeOnRedux = useSelector(
-  //     (state: { theme: ThemeInterface }) => state.theme
-  //   );
+  const languageOptions = [
+    {
+      key: Language.EN,
+      label: <span>{t("language.english")}</span>,
+      image: <img src={"/public/images/eua.png"} alt="EUA Flag" />,
+    },
+    {
+      key: Language.PT,
+      label: <span>{t("language.portuguese")}</span>,
+      image: <img src={"/images/brazil.png"} alt="Bandeira do Brasil" />,
+    },
+  ];
 
-  //   useEffect(() => {
-  //     const { isDarkTheme } = themeOnRedux;
-  //     const body = document.querySelector("body")!;
-
-  //     if (isDarkTheme && !body.classList.contains("dark")) {
-  //       body.classList.add("dark");
-  //     } else body.classList.remove("dark");
-  //   }, [themeOnRedux]);
-
-  const handleNavigation = () => {
-    // if (window.innerWidth <= 900) {
-    //   const navigation = document.querySelector(".navigation")!;
-    //   navigation.classList.toggle("active");
-    // }
-  };
+  const selectedLanguageOption = languageOptions.find(
+    (lang) => lang.key === language
+  );
 
   const handleShowNavigationMenu = () => {
     const toggle = document.querySelector(".toggle")!;
@@ -72,22 +72,6 @@ export const Home = () => {
     navigation.classList.toggle("active");
     main.classList.toggle("active");
   };
-
-  //   const handleShowCarouselImage = (title: string, images: string[]) => {
-  //     setShowCarouselImage({
-  //       title,
-  //       images,
-  //       visible: true,
-  //     });
-  //   };
-
-  //   const handleCloseCarouselImage = () => {
-  //     setShowCarouselImage({
-  //       title: "",
-  //       images: [],
-  //       visible: false,
-  //     });
-  //   };
 
   //   const handleSwitchTheme = (isDark: boolean) => {
   //     dispatch(changeTheme({ isDarkTheme: isDark }));
@@ -159,66 +143,69 @@ export const Home = () => {
       <Container>
         <NavigateContent>
           <MenuSections>
-            <a href="#banner" onClick={handleNavigation}>
+            <MenuSectionItem
+              href="#banner"
+              selected={urlHash === "#banner" || urlHash === ""}
+            >
               {t("navigation_menu.home")}
-            </a>
-            <a href="#about" onClick={handleNavigation}>
+            </MenuSectionItem>
+            <MenuSectionItem href="#about" selected={urlHash === "#about"}>
               {t("navigation_menu.about")}
-            </a>
+            </MenuSectionItem>
 
-            <a href="#services" onClick={handleNavigation}>
+            <MenuSectionItem
+              href="#services"
+              selected={urlHash === "#services"}
+            >
               {t("navigation_menu.services")}
-            </a>
+            </MenuSectionItem>
 
-            <a href="#projects" onClick={handleNavigation}>
+            <MenuSectionItem
+              href="#projects"
+              selected={urlHash === "#projects"}
+            >
               {t("navigation_menu.projects")}
-            </a>
+            </MenuSectionItem>
 
-            <a href="#contact" onClick={handleNavigation}>
+            <MenuSectionItem href="#contact" selected={urlHash === "#contact"}>
               {t("navigation_menu.contact")}
-            </a>
+            </MenuSectionItem>
           </MenuSections>
 
           <MenuLanguage className="language-switch">
-            {/* <Select
-          value={languageOnRedux.language}
-          onChange={handleChangeLanguage}
-          >
-            <Select.Option value="pt">
-              <img
-                src={"/images/brazil.png"}
-                alt="Bandeira do Brasil"
-                width={30}
-                height={30}
-              />
-              <span>Português</span>
-            </Select.Option>
+            <Menu>
+              <MenuButton>
+                <MenuLanguageContent>
+                  {selectedLanguageOption?.image}
+                  {selectedLanguageOption?.label}
+                </MenuLanguageContent>
+              </MenuButton>
 
-            <Select.Option value="en">
-              <img
-                src={"/images/eua.png"}
-                alt="EUA Flag"
-                width={30}
-                height={30}
-              />
-              <span>English</span>
-            </Select.Option>
-          </Select> */}
-
-            <Select placeholder="Select option">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </Select>
+              <MenuList>
+                {languageOptions.map((lang) => {
+                  return (
+                    <MenuItem
+                      key={lang.key}
+                      onClick={() => updateLanguage(lang.key)}
+                    >
+                      <MenuLanguageContent>
+                        {lang.image}
+                        {lang.label}
+                      </MenuLanguageContent>
+                    </MenuItem>
+                  );
+                })}
+              </MenuList>
+            </Menu>
           </MenuLanguage>
 
-          <MenuTheme>
+          {/* <MenuTheme>
             <Select placeholder="Select option">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </Select>
-          </MenuTheme>
+          </MenuTheme> */}
 
           {/* <div
           className="theme-switch"
@@ -245,15 +232,14 @@ export const Home = () => {
 
           <BannerSection id="banner">
             <ProfileContent>
-              {/* <div> */}
               <img
                 loading="lazy"
                 src="/public/images/user_1.jpg"
                 alt="User profile-1"
               />
-              {/* </div> */}
 
               <h3>Welington Fidelis de Sousa</h3>
+
               <p>{t("about_me.office")}</p>
               <Button
                 title={t("about_me.view_cv")}
@@ -287,7 +273,10 @@ export const Home = () => {
           </BannerSection>
 
           <AboutSection id="about">
-            <SectionTitle>{t("about_me.title")}</SectionTitle>
+            <SectionTitle>
+              {t("about_me.title")}
+              <div />
+            </SectionTitle>
 
             <AboutSectionContent>
               <AboutSectionDescription>
@@ -301,7 +290,10 @@ export const Home = () => {
           </AboutSection>
 
           <JobSection id="services" className="services adjust">
-            <SectionTitle>{t("services.title")}</SectionTitle>
+            <SectionTitle>
+              {t("services.title")}
+              <div />
+            </SectionTitle>
             <SectionResume>{t("services.description")}</SectionResume>
 
             <JobSectionContainer>
@@ -316,7 +308,10 @@ export const Home = () => {
           </JobSection>
 
           <ProjectSection id="projects">
-            <SectionTitle>{t("projects.title")}</SectionTitle>
+            <SectionTitle>
+              {t("projects.title")}
+              <div />
+            </SectionTitle>
             <SectionResume>{t("projects.description")}</SectionResume>
 
             <ProjectSectionContainer>

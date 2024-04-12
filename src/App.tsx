@@ -12,8 +12,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { GlobalStyles } from "./global.styles";
+import { preferencesStore } from "./store/preferences";
 
 function App() {
+  const { language } = preferencesStore();
+  
+  i18n.changeLanguage(language);
+
   return (
     <ChakraProvider
       theme={theme}

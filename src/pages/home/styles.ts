@@ -23,19 +23,30 @@ export const MenuSections = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
 
-  a {
-    opacity: 0.7;
-    margin-top: 1rem;
-    transition: 0.5s;
+export const MenuSectionItem = styled.a<{ selected: boolean }>`
+  margin-top: 1rem;
+  transition: 0.5s;
+  opacity: ${(props) => (props.selected ? 1 : 0.7)};
+  font-weight: ${(props) => (props.selected ? 600 : 400)};
 
-    &:hover {
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
   }
 `;
 
 export const MenuLanguage = styled.div``;
+
+export const MenuLanguageContent = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 1.6rem;
+    margin-right: 0.5rem;
+  }
+`;
 
 export const MenuTheme = styled.div``;
 
@@ -113,9 +124,15 @@ export const SocialContent = styled.div`
 export const SectionTitle = styled.h2`
   text-transform: uppercase;
   text-align: center;
-  margin: 1.5rem 0 2.5rem;
+  margin-top: 1rem;
   font-size: 1.2rem;
   letter-spacing: 2px;
+
+  div {
+    border-top: 1px solid;
+    width: 55px;
+    margin: .2rem auto 1.5rem auto;
+  }
 `;
 
 export const SectionResume = styled.p`
