@@ -1,6 +1,19 @@
 import { Trans, useTranslation } from "react-i18next";
-import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
-import { Menu, MenuButton, MenuItem, MenuList, Select } from "@chakra-ui/react";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaTwitter,
+  FaGithub,
+  FaMoon,
+  FaSun,
+} from "react-icons/fa";
+import {
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
 import { ProjectInterface } from "../../domains/Project.ts";
@@ -35,6 +48,7 @@ import { JobDetail } from "../../components/jobDetail/index.tsx";
 import { JobInterface } from "../../domains/Job.ts";
 import { preferencesStore } from "../../store/preferences/index.ts";
 import { Language } from "../../enum/language.ts";
+import { ThemeColor } from "../../enum/themeColor.ts";
 
 const { CURRICULUM } = ApplicationRoutes;
 
@@ -42,7 +56,10 @@ export const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { hash: urlHash } = useLocation();
-  const { language, updateLanguage } = preferencesStore();
+  const { language, updateLanguage, themeColor, updateThemeColor } =
+    preferencesStore();
+
+  const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
   const languageOptions = [
     {
@@ -73,10 +90,14 @@ export const Home = () => {
     main.classList.toggle("active");
   };
 
-  //   const handleSwitchTheme = (isDark: boolean) => {
-  //     dispatch(changeTheme({ isDarkTheme: isDark }));
-  //     setCookies("dark_theme", isDark);
-  //   };
+  const handleSwitchTheme = () => {
+    const newThemeColor = isThemeLightSelected
+      ? ThemeColor.DARK
+      : ThemeColor.LIGHT;
+    updateThemeColor(newThemeColor);
+
+    // setCookies("dark_theme", isDark);
+  };
 
   //   const handleSendEmail = async (values: any) => {
   //     if (!mailLoading) {
@@ -199,28 +220,23 @@ export const Home = () => {
             </Menu>
           </MenuLanguage>
 
-          {/* <MenuTheme>
-            <Select placeholder="Select option">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </Select>
-          </MenuTheme> */}
-
-          {/* <div
-          className="theme-switch"
-          onClick={() => handleSwitchTheme(!themeOnRedux.isDarkTheme)}
-        >
-          {themeOnRedux.isDarkTheme ? (
-            <>
-              <FaSun /> <span>{t("theme_switch.light")}</span>
-            </>
-          ) : (
-            <>
-              <FaMoon /> <span>{t("theme_switch.dark")}</span>
-            </>
-          )}
-        </div> */}
+          <MenuTheme onClick={handleSwitchTheme}>
+            <IconButton
+              icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
+              aria-label={
+                isThemeLightSelected
+                  ? t("theme_switch.dark")
+                  : t("theme_switch.light")
+              }
+              borderRadius={50}
+              size="xs"
+            />
+            <span>
+              {isThemeLightSelected
+                ? t("theme_switch.dark")
+                : t("theme_switch.light")}
+            </span>
+          </MenuTheme>
         </NavigateContent>
 
         <MainContent>

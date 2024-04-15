@@ -9,11 +9,11 @@ export const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth;
         height: 100%;
         width: 100%;
+        background: ${(props) => props.theme.colors.background_a};
     }
 
     ::-webkit-scrollbar {
         width: 5px;
-        background: ${(props) => props.theme.colors.background_a};
     }
 
     ::-webkit-scrollbar-track {

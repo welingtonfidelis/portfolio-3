@@ -5,16 +5,16 @@ export const Container = styled.div`
   display: flex;
   height: 100%;
   color: ${(props) => props.theme.colors.primary};
-  background: ${(props) => props.theme.colors.background_a};
 `;
 
 export const NavigateContent = styled.nav`
   position: fixed;
-  width: 16rem;
+  width: 17rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
   border-right: 1px solid ${(props) => props.theme.colors.separator};
+  background: ${(props) => props.theme.colors.background_b};
   padding: 2rem;
 `;
 
@@ -36,7 +36,9 @@ export const MenuSectionItem = styled.a<{ selected: boolean }>`
   }
 `;
 
-export const MenuLanguage = styled.div``;
+export const MenuLanguage = styled.div`
+  font-size: 0.8rem;
+`;
 
 export const MenuLanguageContent = styled.div`
   display: flex;
@@ -48,17 +50,34 @@ export const MenuLanguageContent = styled.div`
   }
 `;
 
-export const MenuTheme = styled.div``;
+export const MenuTheme = styled.div`
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
+
+  button {
+    margin-right: 0.5rem;
+    background: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.background_a};
+    width: 26px;
+    height: 26px;
+  }
+
+  :hover {
+    filter: brightness(.9);
+    cursor: pointer;
+  }
+`;
 
 export const MainContent = styled.div`
-  margin-left: 16rem; //relative to NavigateContent
+  margin-left: 17rem; //relative to NavigateContent
 `;
 
 export const TopBarContent = styled.div`
   position: fixed;
   height: 3.5rem;
-  width: calc(100vw - 16rem); //relative to NavigateContent
-  background: ${(props) => props.theme.colors.background_a};
+  width: calc(100vw - 17rem); //relative to NavigateContent
+  background: ${(props) => props.theme.colors.background_b};
   border-bottom: 1px solid ${(props) => props.theme.colors.separator};
   display: flex;
   align-items: center;
@@ -131,7 +150,7 @@ export const SectionTitle = styled.h2`
   div {
     border-top: 1px solid;
     width: 55px;
-    margin: .2rem auto 1.5rem auto;
+    margin: 0.2rem auto 1.5rem auto;
   }
 `;
 
