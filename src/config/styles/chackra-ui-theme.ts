@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 const zIndices = {
   hide: -1,
-  auto: 'auto',
+  auto: "auto",
   base: 0,
   docked: 10,
   dropdown: 1850,
@@ -30,6 +30,8 @@ const colors = {
 const theme = extendTheme({
   colors,
   zIndices,
+  initialColorMode: 'light',
+  useSystemColorMode: false
 });
 
 export { theme };

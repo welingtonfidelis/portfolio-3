@@ -64,7 +64,7 @@ export const MenuTheme = styled.div`
   }
 
   :hover {
-    filter: brightness(.9);
+    filter: brightness(0.9);
     cursor: pointer;
   }
 `;

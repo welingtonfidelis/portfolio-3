@@ -14,13 +14,36 @@ import "slick-carousel/slick/slick-theme.css";
 import { GlobalStyles } from "./global.styles";
 import { preferencesStore } from "./store/preferences";
 import { ThemeColor } from "./enum/themeColor";
+import { browserStorage } from "./services/localStorage";
+import { ApplicationStorage } from "./enum/applicationStorage";
+import { useEffect } from "react";
+
+const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
 
 function App() {
-  const { language, themeColor } = preferencesStore();
-  
-  const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
+  const { language, themeColor, updateThemeColor, updateLanguage } =
+    preferencesStore();
+  const { getFromStorage } = browserStorage();
 
-  i18n.changeLanguage(language);
+  const themeColorOnStorage = getFromStorage(PREFERENCE_THEME_COLOR);
+  const languageOnStorage = getFromStorage(PREFERENCE_LANGUAGE);
+
+  useEffect(() => {
+    if (themeColorOnStorage) updateThemeColor(themeColorOnStorage);
+
+    if (languageOnStorage) updateLanguage(languageOnStorage);
+  }, [
+    languageOnStorage,
+    themeColorOnStorage,
+    updateLanguage,
+    updateThemeColor,
+  ]);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
+
+  const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
   return (
     <ChakraProvider

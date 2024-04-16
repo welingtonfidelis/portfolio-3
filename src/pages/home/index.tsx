@@ -13,6 +13,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
@@ -49,8 +50,11 @@ import { JobInterface } from "../../domains/Job.ts";
 import { preferencesStore } from "../../store/preferences/index.ts";
 import { Language } from "../../enum/language.ts";
 import { ThemeColor } from "../../enum/themeColor.ts";
+import { browserStorage } from "../../services/localStorage.ts";
+import { ApplicationStorage } from "../../enum/applicationStorage.ts";
 
 const { CURRICULUM } = ApplicationRoutes;
+const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -58,6 +62,8 @@ export const Home = () => {
   const { hash: urlHash } = useLocation();
   const { language, updateLanguage, themeColor, updateThemeColor } =
     preferencesStore();
+  const { setOnStorage } = browserStorage();
+  const { toggleColorMode } = useColorMode();
 
   const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
@@ -90,13 +96,21 @@ export const Home = () => {
     main.classList.toggle("active");
   };
 
-  const handleSwitchTheme = () => {
+  const handleChangeLanguage = (lang: Language) => {
+    updateLanguage(lang);
+
+    setOnStorage(PREFERENCE_LANGUAGE, lang);
+  };
+
+  const handleChangeThemeColor = () => {
+    toggleColorMode();
+
     const newThemeColor = isThemeLightSelected
       ? ThemeColor.DARK
       : ThemeColor.LIGHT;
     updateThemeColor(newThemeColor);
 
-    // setCookies("dark_theme", isDark);
+    setOnStorage(PREFERENCE_THEME_COLOR, newThemeColor);
   };
 
   //   const handleSendEmail = async (values: any) => {
@@ -154,11 +168,6 @@ export const Home = () => {
   //     }
   //   };
 
-  //   const handleChangeLanguage = (language: string) => {
-  //     dispatch(changeLanguage({ language }));
-  //     setCookies("language", language);
-  //   };
-
   return (
     <>
       <Container>
@@ -207,7 +216,7 @@ export const Home = () => {
                   return (
                     <MenuItem
                       key={lang.key}
-                      onClick={() => updateLanguage(lang.key)}
+                      onClick={() => handleChangeLanguage(lang.key)}
                     >
                       <MenuLanguageContent>
                         {lang.image}
@@ -220,7 +229,7 @@ export const Home = () => {
             </Menu>
           </MenuLanguage>
 
-          <MenuTheme onClick={handleSwitchTheme}>
+          <MenuTheme onClick={handleChangeThemeColor}>
             <IconButton
               icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
               aria-label={

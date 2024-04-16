@@ -33,8 +33,8 @@ export const DetailContent = styled.div`
 
 export const ImageContent = styled.div`
   img {
-    max-width: 75vw;
-    max-height: 75vh;
+    max-width: 72vw;
+    max-height: 72vh;
     margin: auto;
   }
 `;

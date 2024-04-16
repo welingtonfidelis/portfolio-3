@@ -29,12 +29,12 @@ export const Modal = (props: PropsWithChildren<Props>) => {
   const { t } = useTranslation();
 
   return (
-    <ModalChakra onClose={onClose} isOpen={isOpen} size='xl' isCentered>
+    <ModalChakra onClose={onClose} isOpen={isOpen} size="xl" isCentered>
       <ModalOverlay />
-      <ModalContent maxH='90vh' maxW='90vw'>
-        <ModalHeader margin="auto" >{title}</ModalHeader>
+      <ModalContent maxH="90vh" maxW="90vw">
+        <ModalHeader margin="auto">{title}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody >{children}</ModalBody>
+        <ModalBody>{children}</ModalBody>
         {showActionButtons && (
           <ModalFooter>
             {extraActionButtons}
