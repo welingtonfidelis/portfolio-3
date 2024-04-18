@@ -27,11 +27,28 @@ const colors = {
   },
 };
 
+const components = {
+	Drawer: {
+		variants: {
+			alwaysOpen: {
+				parts: ['dialog, dialogContainer'],
+				dialog: {
+					pointerEvents: 'auto',
+				},
+				dialogContainer: {
+					pointerEvents: 'none',
+				},
+			},
+		},
+	},
+};
+
 const theme = extendTheme({
   colors,
   zIndices,
   initialColorMode: 'light',
-  useSystemColorMode: false
+  useSystemColorMode: false,
+  components
 });
 
 export { theme };

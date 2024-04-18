@@ -9,11 +9,7 @@ import {
 } from "react-icons/fa";
 import { Formik, Form, Field, FieldProps } from "formik";
 import {
-  Drawer,
-  DrawerBody,
   DrawerCloseButton,
-  DrawerContent,
-  DrawerOverlay,
   FormControl,
   FormErrorMessage,
   IconButton,
@@ -69,6 +65,7 @@ import { ApplicationStorage } from "../../enum/applicationStorage.ts";
 import { commonStore } from "../../store/commonStore/index.ts";
 import { FormProps } from "./types.ts";
 import { formValidate } from "./helper/formValidate.ts";
+import { Drawer } from "../../components/drawer/index.tsx";
 
 const { CURRICULUM } = ApplicationRoutes;
 const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
@@ -202,102 +199,99 @@ export const Home = () => {
           isOpen={isSideMenuOpen || !isMobileScreen}
           placement="left"
           onClose={() => isMobileScreen && onCloseSideMenu()}
+          maxWidth={isMobileScreen ? 500 : 272}
+          useDrawerOverlay={isMobileScreen}
+          blockScrollOnMount={isMobileScreen}
         >
-          {isMobileScreen && <DrawerOverlay />}
+          <NavigateContent>
+            {isMobileScreen && <DrawerCloseButton size="xs" margin={4} />}
 
-          <DrawerContent maxW={isMobileScreen ? 500 : 272}>
-            <DrawerBody p={0}>
-              <NavigateContent>
-                {isMobileScreen && <DrawerCloseButton size="xs" margin={4} />}
+            <MenuSections>
+              <MenuSectionItem
+                href="#banner"
+                onClick={handleChangeSection}
+                selected={urlHash === "#banner" || urlHash === ""}
+              >
+                {t("navigation_menu.home")}
+              </MenuSectionItem>
+              <MenuSectionItem
+                href="#about"
+                onClick={handleChangeSection}
+                selected={urlHash === "#about"}
+              >
+                {t("navigation_menu.about")}
+              </MenuSectionItem>
 
-                <MenuSections>
-                  <MenuSectionItem
-                    href="#banner"
-                    onClick={handleChangeSection}
-                    selected={urlHash === "#banner" || urlHash === ""}
-                  >
-                    {t("navigation_menu.home")}
-                  </MenuSectionItem>
-                  <MenuSectionItem
-                    href="#about"
-                    onClick={handleChangeSection}
-                    selected={urlHash === "#about"}
-                  >
-                    {t("navigation_menu.about")}
-                  </MenuSectionItem>
+              <MenuSectionItem
+                href="#services"
+                onClick={handleChangeSection}
+                selected={urlHash === "#services"}
+              >
+                {t("navigation_menu.services")}
+              </MenuSectionItem>
 
-                  <MenuSectionItem
-                    href="#services"
-                    onClick={handleChangeSection}
-                    selected={urlHash === "#services"}
-                  >
-                    {t("navigation_menu.services")}
-                  </MenuSectionItem>
+              <MenuSectionItem
+                href="#projects"
+                onClick={handleChangeSection}
+                selected={urlHash === "#projects"}
+              >
+                {t("navigation_menu.projects")}
+              </MenuSectionItem>
 
-                  <MenuSectionItem
-                    href="#projects"
-                    onClick={handleChangeSection}
-                    selected={urlHash === "#projects"}
-                  >
-                    {t("navigation_menu.projects")}
-                  </MenuSectionItem>
+              <MenuSectionItem
+                href="#contact"
+                onClick={handleChangeSection}
+                selected={urlHash === "#contact"}
+              >
+                {t("navigation_menu.contact")}
+              </MenuSectionItem>
+            </MenuSections>
 
-                  <MenuSectionItem
-                    href="#contact"
-                    onClick={handleChangeSection}
-                    selected={urlHash === "#contact"}
-                  >
-                    {t("navigation_menu.contact")}
-                  </MenuSectionItem>
-                </MenuSections>
+            <MenuLanguage className="language-switch">
+              <Menu>
+                <MenuButton>
+                  <MenuLanguageContent>
+                    {selectedLanguageOption?.image}
+                    {selectedLanguageOption?.label}
+                  </MenuLanguageContent>
+                </MenuButton>
 
-                <MenuLanguage className="language-switch">
-                  <Menu>
-                    <MenuButton>
-                      <MenuLanguageContent>
-                        {selectedLanguageOption?.image}
-                        {selectedLanguageOption?.label}
-                      </MenuLanguageContent>
-                    </MenuButton>
+                <MenuList>
+                  {languageOptions.map((lang) => {
+                    return (
+                      <MenuItem
+                        key={lang.key}
+                        onClick={() => handleChangeLanguage(lang.key)}
+                      >
+                        <MenuLanguageContent>
+                          {lang.image}
+                          {lang.label}
+                        </MenuLanguageContent>
+                      </MenuItem>
+                    );
+                  })}
+                </MenuList>
+              </Menu>
+            </MenuLanguage>
 
-                    <MenuList>
-                      {languageOptions.map((lang) => {
-                        return (
-                          <MenuItem
-                            key={lang.key}
-                            onClick={() => handleChangeLanguage(lang.key)}
-                          >
-                            <MenuLanguageContent>
-                              {lang.image}
-                              {lang.label}
-                            </MenuLanguageContent>
-                          </MenuItem>
-                        );
-                      })}
-                    </MenuList>
-                  </Menu>
-                </MenuLanguage>
-
-                <MenuTheme onClick={handleChangeThemeColor}>
-                  <IconButton
-                    icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
-                    aria-label={
-                      isThemeLightSelected
-                        ? t("theme_switch.dark")
-                        : t("theme_switch.light")
-                    }
-                    borderRadius={50}
-                    size="xs"
-                  />
-                  <span>
-                    {isThemeLightSelected
-                      ? t("theme_switch.dark")
-                      : t("theme_switch.light")}
-                  </span>
-                </MenuTheme>
-              </NavigateContent>
-            </DrawerBody>
-          </DrawerContent>
+            <MenuTheme onClick={handleChangeThemeColor}>
+              <IconButton
+                icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
+                aria-label={
+                  isThemeLightSelected
+                    ? t("theme_switch.dark")
+                    : t("theme_switch.light")
+                }
+                borderRadius={50}
+                size="xs"
+              />
+              <span>
+                {isThemeLightSelected
+                  ? t("theme_switch.dark")
+                  : t("theme_switch.light")}
+              </span>
+            </MenuTheme>
+          </NavigateContent>
         </Drawer>
 
         <MainContent>
