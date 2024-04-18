@@ -10,6 +10,14 @@ export const GlobalStyles = createGlobalStyle`
         height: 100%;
         width: 100%;
         background: ${(props) => props.theme.colors.background_a};
+
+        .chakra-modal__content-container {
+            width: 272px;
+
+            @media (max-width: 900px) {
+                width: 500px;
+            }
+        }
     }
 
     ::-webkit-scrollbar {
