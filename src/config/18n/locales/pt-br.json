@@ -200,28 +200,11 @@
         ]
       },
       {
-        "title": "WhatssApp bot",
-        "publication_url": "",
-        "github_url": "https://github.com/welingtonfidelis/whatsapp_bot",
-        "images": [
-          "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/whatssapp_bot/94db5a0e-54df-474d-bd0b-0c2a26b7b20b.png",
-          "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/whatssapp_bot/c4434fc2-780b-42a2-b4b4-2dda6c8b47b8.png"
-        ]
-      },
-      {
         "title": "Next Level Week 4",
         "publication_url": "",
         "github_url": "https://github.com/welingtonfidelis/NextLevelWeek4",
         "images": [
           "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/next_level_week_4/28f93743-da0e-4ab3-91e1-8cc1a3aed721.png"
-        ]
-      },
-      {
-        "title": "Poc upload arquivos por socket",
-        "publication_url": "",
-        "github_url": "https://github.com/welingtonfidelis/pocUploadFile",
-        "images": [
-          "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/poc_upload_arquivos_por_socket/a19faccd-971a-4586-8579-002d02599712.png"
         ]
       },
       {
@@ -322,14 +305,6 @@
           "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/control_payment/f473c620-ee5d-4e21-aebc-088b058af87e.png",
           "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/control_payment/eec34c99-b6b7-4961-b322-065933e93fdd.png",
           "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/control_payment/b83f4212-9825-46b1-9752-3be8ca70a08c.png"
-        ]
-      },
-      {
-        "title": "CRUD Question GraphQl",
-        "publication_url": "",
-        "github_url": "https://github.com/welingtonfidelis/CRUD-Question-GraphQL/CRUD-Question-GraphQL",
-        "images": [
-          "https://welingtonfidelisportfolio.s3.sa-east-1.amazonaws.com/images/crud_question_graphql/d3981c6f-99fc-496d-8fd1-a9b9dd2a901d.png"
         ]
       },
       {

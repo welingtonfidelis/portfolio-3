@@ -1,13 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 20rem;
+  width: 100%;
   height: 20rem;
   transition: 0.5s;
   cursor: pointer;
 
   :hover {
     filter: brightness(0.9);
+  }
+
+  @media (max-width: 900px) {
+    height: 25rem;
+  }
+
+  @media (max-width: 700px) {
+    height: 35rem;
   }
 `;
 

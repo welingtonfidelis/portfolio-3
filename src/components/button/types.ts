@@ -1,4 +1,3 @@
-export interface Props {
-    title: string;
-    onClick: () => void;
-}
+import { ButtonProps } from "@chakra-ui/react";
+
+export interface Props extends ButtonProps {}

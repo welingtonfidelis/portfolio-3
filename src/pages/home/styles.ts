@@ -7,7 +7,7 @@ export const Container = styled.div`
   color: ${(props) => props.theme.colors.primary};
 `;
 
-export const NavigateContent = styled.nav`
+export const NavigateContent = styled.nav<{ isSideMenuOpen: boolean }>`
   position: fixed;
   width: 17rem;
   height: 100vh;
@@ -16,6 +16,12 @@ export const NavigateContent = styled.nav`
   border-right: 1px solid ${(props) => props.theme.colors.separator};
   background: ${(props) => props.theme.colors.background_b};
   padding: 2rem;
+  left: ${(props) => (props.isSideMenuOpen ? "" : "100%")};
+
+  @media (max-width: 900px) {
+    z-index: 1000;
+    width: ${(props) => (props.isSideMenuOpen ? "100vw" : "0")};
+  }
 `;
 
 export const MenuSections = styled.div`
@@ -69,14 +75,17 @@ export const MenuTheme = styled.div`
   }
 `;
 
-export const MainContent = styled.div`
-  margin-left: 17rem; //relative to NavigateContent
+export const MainContent = styled.div<{ isSideMenuOpen: boolean }>`
+  margin-left: ${(props) =>
+    props.isSideMenuOpen ? "17rem" : 0}; //relative to NavigateContent
 `;
 
-export const TopBarContent = styled.div`
+export const TopBarContent = styled.div<{ isSideMenuOpen: boolean }>`
   position: fixed;
   height: 3.5rem;
-  width: calc(100vw - 17rem); //relative to NavigateContent
+  width: calc(
+    100vw - ${(props) => (props.isSideMenuOpen ? "17rem" : "0px")}
+  ); //relative to NavigateContent
   background: ${(props) => props.theme.colors.background_b};
   border-bottom: 1px solid ${(props) => props.theme.colors.separator};
   display: flex;
@@ -89,6 +98,10 @@ export const TopBarContent = styled.div`
     flex: 1;
     font-weight: 600;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    width: 100vw;
   }
 `;
 
@@ -175,10 +188,29 @@ export const AboutSection = styled(SectionBase)``;
 
 export const AboutSectionContent = styled.div`
   display: flex;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
+
 export const AboutSectionDescription = styled.div`
   width: 60%;
   margin-right: 3rem;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-right: 0;
+  }
+`;
+
+export const AboutSectionImage = styled.div`
+  @media (max-width: 900px) {
+    img {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
 `;
 
 export const JobSection = styled(SectionBase)``;
@@ -192,6 +224,10 @@ export const JobSectionContainer = styled.div`
   :hover {
     filter: brightness(0.9);
   }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ProjectSection = styled(SectionBase)``;
@@ -201,8 +237,40 @@ export const ProjectSectionContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 2rem 0;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ContactSection = styled(SectionBase)``;
+
+export const FormContainer = styled.div`
+  flex: 1;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const SenderInfoContainer = styled.div`
+  width: 100%;
+  display: flex;
+
+  :first-child {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+`;
 
 export const FaBarsIcon = styled(FaBars)``;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import {
   FaLinkedin,
@@ -7,12 +8,18 @@ import {
   FaMoon,
   FaSun,
 } from "react-icons/fa";
+import { Formik, Form, Field, FieldProps } from "formik";
 import {
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
   IconButton,
+  Input,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
+  Textarea,
   useColorMode,
 } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -22,10 +29,13 @@ import {
   AboutSection,
   AboutSectionContent,
   AboutSectionDescription,
+  AboutSectionImage,
   BannerSection,
   ContactSection,
   Container,
   FaBarsIcon,
+  FormContainer,
+  FormInputContainer,
   JobSection,
   JobSectionContainer,
   MainContent,
@@ -40,6 +50,7 @@ import {
   ProjectSectionContainer,
   SectionResume,
   SectionTitle,
+  SenderInfoContainer,
   SocialContent,
   TopBarContent,
 } from "./styles.ts";
@@ -52,6 +63,9 @@ import { Language } from "../../enum/language.ts";
 import { ThemeColor } from "../../enum/themeColor.ts";
 import { browserStorage } from "../../services/localStorage.ts";
 import { ApplicationStorage } from "../../enum/applicationStorage.ts";
+import { commonStore } from "../../store/commonStore/index.ts";
+import { FormProps } from "./types.ts";
+import { formValidate } from "./helper/formValidate.ts";
 
 const { CURRICULUM } = ApplicationRoutes;
 const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
@@ -62,8 +76,11 @@ export const Home = () => {
   const { hash: urlHash } = useLocation();
   const { language, updateLanguage, themeColor, updateThemeColor } =
     preferencesStore();
+  const { isMobileScreen } = commonStore();
   const { setOnStorage } = browserStorage();
   const { toggleColorMode } = useColorMode();
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(!isMobileScreen);
+  const validateFormFields = formValidate();
 
   const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
@@ -84,16 +101,18 @@ export const Home = () => {
     (lang) => lang.key === language
   );
 
-  const handleShowNavigationMenu = () => {
-    const toggle = document.querySelector(".toggle")!;
-    const topbar = document.querySelector(".topbar")!;
-    const navigation = document.querySelector(".navigation")!;
-    const main = document.querySelector(".main")!;
+  const initialFormValues = {
+    name: "",
+    email: "",
+    message: "",
+  };
 
-    toggle.classList.toggle("active");
-    topbar.classList.toggle("active");
-    navigation.classList.toggle("active");
-    main.classList.toggle("active");
+  const handleShowNavigationMenu = () => {
+    setIsSideMenuOpen((oldValue) => !oldValue);
+  };
+
+  const handleChangeSection = () => {
+    if (isMobileScreen) setIsSideMenuOpen(false);
   };
 
   const handleChangeLanguage = (lang: Language) => {
@@ -111,6 +130,10 @@ export const Home = () => {
     updateThemeColor(newThemeColor);
 
     setOnStorage(PREFERENCE_THEME_COLOR, newThemeColor);
+  };
+
+  const handleSendMessage = (values: FormProps) => {
+    console.log("values: ", values);
   };
 
   //   const handleSendEmail = async (values: any) => {
@@ -171,20 +194,26 @@ export const Home = () => {
   return (
     <>
       <Container>
-        <NavigateContent>
+        <NavigateContent isSideMenuOpen={isSideMenuOpen}>
           <MenuSections>
             <MenuSectionItem
               href="#banner"
+              onClick={handleChangeSection}
               selected={urlHash === "#banner" || urlHash === ""}
             >
               {t("navigation_menu.home")}
             </MenuSectionItem>
-            <MenuSectionItem href="#about" selected={urlHash === "#about"}>
+            <MenuSectionItem
+              href="#about"
+              onClick={handleChangeSection}
+              selected={urlHash === "#about"}
+            >
               {t("navigation_menu.about")}
             </MenuSectionItem>
 
             <MenuSectionItem
               href="#services"
+              onClick={handleChangeSection}
               selected={urlHash === "#services"}
             >
               {t("navigation_menu.services")}
@@ -192,12 +221,17 @@ export const Home = () => {
 
             <MenuSectionItem
               href="#projects"
+              onClick={handleChangeSection}
               selected={urlHash === "#projects"}
             >
               {t("navigation_menu.projects")}
             </MenuSectionItem>
 
-            <MenuSectionItem href="#contact" selected={urlHash === "#contact"}>
+            <MenuSectionItem
+              href="#contact"
+              onClick={handleChangeSection}
+              selected={urlHash === "#contact"}
+            >
               {t("navigation_menu.contact")}
             </MenuSectionItem>
           </MenuSections>
@@ -248,8 +282,8 @@ export const Home = () => {
           </MenuTheme>
         </NavigateContent>
 
-        <MainContent>
-          <TopBarContent>
+        <MainContent isSideMenuOpen={isSideMenuOpen}>
+          <TopBarContent isSideMenuOpen={isSideMenuOpen}>
             <a href="#banner">{t("top_bar_menu.title")}</a>
 
             <FaBarsIcon onClick={handleShowNavigationMenu} />
@@ -308,9 +342,9 @@ export const Home = () => {
                 <Trans i18nKey="about_me.description" />
               </AboutSectionDescription>
 
-              <div>
+              <AboutSectionImage>
                 <img src="/public/images/user_2.jpg" alt="User profile-2" />
-              </div>
+              </AboutSectionImage>
             </AboutSectionContent>
           </AboutSection>
 
@@ -351,11 +385,85 @@ export const Home = () => {
           </ProjectSection>
 
           <ContactSection id="contact" className="contact adjust">
-            <div className="title">
-              <h2>{t("contact.title")}</h2>
-              <p>{t("contact.description")}</p>
-            </div>
+            <SectionTitle>
+              {t("contact.title")}
+              <div />
+            </SectionTitle>
 
+            <SectionResume>{t("contact.description")}</SectionResume>
+
+            <FormContainer>
+              <Formik
+                initialValues={initialFormValues}
+                validationSchema={validateFormFields}
+                onSubmit={handleSendMessage}
+              >
+                {({ errors, touched }) => {
+                  console.log("errors: ", errors);
+                  return (
+                    <Form>
+                      <SenderInfoContainer>
+                        <Field name="name">
+                          {({ field }: FieldProps) => (
+                            <FormControl
+                              isInvalid={!!errors.name && touched.name}
+                              mb="2"
+                            >
+                              <Input
+                                {...field}
+                                borderRadius="none"
+                                placeholder={t("contact.input_name")}
+                              />
+                              <FormErrorMessage>{errors.name}</FormErrorMessage>
+                            </FormControl>
+                          )}
+                        </Field>
+
+                        <Field name="email">
+                          {({ field }: FieldProps) => (
+                            <FormControl
+                              isInvalid={!!errors.email && touched.email}
+                              mb="2"
+                            >
+                              <Input
+                                {...field}
+                                borderRadius="none"
+                                placeholder={t("contact.input_email")}
+                              />
+                              <FormErrorMessage>
+                                {errors.email}
+                              </FormErrorMessage>
+                            </FormControl>
+                          )}
+                        </Field>
+                      </SenderInfoContainer>
+
+                      <Field name="message">
+                        {({ field }: FieldProps) => (
+                          <FormControl
+                            isInvalid={!!errors.message && touched.message}
+                            mb="2"
+                          >
+                            <Textarea
+                              {...field}
+                              resize="none"
+                              rows={8}
+                              borderRadius="none"
+                              placeholder={t("contact.input_message")}
+                            />
+                            <FormErrorMessage>
+                              {errors.message}
+                            </FormErrorMessage>
+                          </FormControl>
+                        )}
+                      </Field>
+
+                      <Button title={t("contact.button_send")} type="submit" />
+                    </Form>
+                  );
+                }}
+              </Formik>
+            </FormContainer>
             {/* <Form
             initialValues={initialFormValues}
             form={form}

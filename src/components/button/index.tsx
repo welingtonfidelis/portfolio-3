@@ -4,11 +4,11 @@ import { Props } from "./types";
 import { ButtonContent, Container } from "./styles";
 
 export const Button = (props: Props) => {
-  const { title, onClick } = props;
+  const { title, ...rest } = props;
 
   return (
     <Container>
-      <ButtonChakra onClick={onClick}>
+      <ButtonChakra {...rest}>
         <ButtonContent>{title}</ButtonContent>
       </ButtonChakra>
     </Container>

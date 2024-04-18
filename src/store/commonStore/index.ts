@@ -7,7 +7,7 @@ const initialState: State = {
 
 export const commonStore = create<State & Action>(() => {
   const { innerWidth } = window;
-  const isMobileScreen = innerWidth <= 600;
+  const isMobileScreen = innerWidth <= 900;
 
   return {
     ...initialState,
