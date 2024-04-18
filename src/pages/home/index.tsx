@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import {
   FaLinkedin,
@@ -25,6 +24,7 @@ import {
   MenuList,
   Textarea,
   useColorMode,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
@@ -83,7 +83,11 @@ export const Home = () => {
   console.log("isMobileScreen: ", isMobileScreen);
   const { setOnStorage } = browserStorage();
   const { toggleColorMode } = useColorMode();
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(!isMobileScreen);
+  const {
+    isOpen: isSideMenuOpen,
+    onOpen: onOpenSideMenu,
+    onClose: onCloseSideMenu,
+  } = useDisclosure({ defaultIsOpen: !isMobileScreen });
   const validateFormFields = formValidate();
 
   const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
@@ -111,12 +115,8 @@ export const Home = () => {
     message: "",
   };
 
-  const handleShowNavigationMenu = () => {
-    setIsSideMenuOpen((oldValue) => !oldValue);
-  };
-
   const handleChangeSection = () => {
-    if (isMobileScreen) setIsSideMenuOpen(false);
+    if (isMobileScreen) onCloseSideMenu();
   };
 
   const handleChangeLanguage = (lang: Language) => {
@@ -201,10 +201,10 @@ export const Home = () => {
         <Drawer
           isOpen={isSideMenuOpen || !isMobileScreen}
           placement="left"
-          onClose={() => isMobileScreen && handleShowNavigationMenu()}
+          onClose={() => isMobileScreen && onCloseSideMenu()}
         >
           {isMobileScreen && <DrawerOverlay />}
-          
+
           <DrawerContent maxW={isMobileScreen ? 500 : 272}>
             <DrawerBody p={0}>
               <NavigateContent>
@@ -304,9 +304,7 @@ export const Home = () => {
           <TopBarContent>
             <a href="#banner">{t("top_bar_menu.title")}</a>
 
-            {isMobileScreen && (
-              <FaBarsIcon onClick={handleShowNavigationMenu} />
-            )}
+            {isMobileScreen && <FaBarsIcon onClick={onOpenSideMenu} />}
           </TopBarContent>
 
           <BannerSection id="banner">
