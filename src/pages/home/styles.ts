@@ -28,6 +28,7 @@ export const MenuSectionItem = styled.a<{ selected: boolean }>`
   transition: 0.5s;
   opacity: ${(props) => (props.selected ? 1 : 0.7)};
   font-weight: ${(props) => (props.selected ? 600 : 400)};
+  letter-spacing: 1px;
 
   &:hover {
     opacity: 1;
@@ -91,6 +92,7 @@ export const TopBarContent = styled.div`
     flex: 1;
     font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   @media (max-width: 900px) {

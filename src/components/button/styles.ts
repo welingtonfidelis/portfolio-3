@@ -13,7 +13,8 @@ export const Container = styled.div`
     text-transform: uppercase;
     transition: 0.5s;
     border-radius: 0%;
-
+    min-width: 10rem;
+    
     &:hover {
       cursor: pointer;
       background: ${(props) => props.theme.colors.tertiary};

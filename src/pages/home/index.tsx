@@ -170,28 +170,6 @@ export const Home = () => {
   //     }
   //   };
 
-  //   const handleEasterEgg = () => {
-  //     const count = easterEgg.count + 1;
-
-  //     switch (count) {
-  //       case 1:
-  //         setEasterEgg({ count, text: "Re" });
-  //         break;
-
-  //       case 2:
-  //         setEasterEgg({ count, text: "Rela" });
-  //         break;
-
-  //       case 3:
-  //         setEasterEgg({ count, text: "Relax" });
-  //         break;
-
-  //       default:
-  //         Router.push("/easterEgg");
-  //         break;
-  //     }
-  //   };
-
   return (
     <>
       <Container>
@@ -475,57 +453,6 @@ export const Home = () => {
                 }}
               </Formik>
             </FormContainer>
-            {/* <Form
-            initialValues={initialFormValues}
-            form={form}
-            onFinish={handleSendEmail}
-            className="contact-form"
-          >
-            <div className="contact-form">
-              <div className="row">
-                <Form.Item
-                  name="name"
-                  rules={[
-                    { required: true, message: t("contact.input_error_name") },
-                  ]}
-                >
-                  <input type="text" placeholder={t("contact.input_name")} />
-                </Form.Item>
-                <Form.Item
-                  name="email"
-                  rules={[
-                    {
-                      required: true,
-                      type: "email",
-                      message: t("contact.input_error_email"),
-                    },
-                  ]}
-                >
-                  <input type="text" placeholder={t("contact.input_email")} />
-                </Form.Item>
-              </div>
-              <div className="row-2">
-                <Form.Item
-                  name="message"
-                  rules={[
-                    {
-                      required: true,
-                      message: t("contact.input_error_message"),
-                    },
-                  ]}
-                >
-                  <textarea placeholder={t("contact.input_message")}></textarea>
-                </Form.Item>
-              </div>
-              <div className="btn row-2" onClick={() => form.submit()}>
-                {mailLoading ? (
-                  <AiOutlineLoading className="rotate-center" />
-                ) : (
-                  <span>{t("contact.button_send")}</span>
-                )}
-              </div>
-            </div>
-          </Form> */}
           </ContactSection>
 
           {/* <div className="easter-egg" onClick={handleEasterEgg}>
