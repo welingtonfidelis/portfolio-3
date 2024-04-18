@@ -10,9 +10,13 @@ import {
 } from "react-icons/fa";
 import { Formik, Form, Field, FieldProps } from "formik";
 import {
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
   FormControl,
   FormErrorMessage,
-  FormLabel,
   IconButton,
   Input,
   Menu,
@@ -35,7 +39,6 @@ import {
   Container,
   FaBarsIcon,
   FormContainer,
-  FormInputContainer,
   JobSection,
   JobSectionContainer,
   MainContent,
@@ -77,6 +80,7 @@ export const Home = () => {
   const { language, updateLanguage, themeColor, updateThemeColor } =
     preferencesStore();
   const { isMobileScreen } = commonStore();
+  console.log("isMobileScreen: ", isMobileScreen);
   const { setOnStorage } = browserStorage();
   const { toggleColorMode } = useColorMode();
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(!isMobileScreen);
@@ -194,99 +198,115 @@ export const Home = () => {
   return (
     <>
       <Container>
-        <NavigateContent isSideMenuOpen={isSideMenuOpen}>
-          <MenuSections>
-            <MenuSectionItem
-              href="#banner"
-              onClick={handleChangeSection}
-              selected={urlHash === "#banner" || urlHash === ""}
-            >
-              {t("navigation_menu.home")}
-            </MenuSectionItem>
-            <MenuSectionItem
-              href="#about"
-              onClick={handleChangeSection}
-              selected={urlHash === "#about"}
-            >
-              {t("navigation_menu.about")}
-            </MenuSectionItem>
+        <Drawer
+          isOpen={isSideMenuOpen || !isMobileScreen}
+          placement="left"
+          onClose={() => isMobileScreen && handleShowNavigationMenu()}
+        >
+          {isMobileScreen && <DrawerOverlay />}
+          
+          <DrawerContent maxW={isMobileScreen ? 500 : 272}>
+            <DrawerBody p={0}>
+              <NavigateContent>
+                {isMobileScreen && <DrawerCloseButton size="xs" margin={4} />}
 
-            <MenuSectionItem
-              href="#services"
-              onClick={handleChangeSection}
-              selected={urlHash === "#services"}
-            >
-              {t("navigation_menu.services")}
-            </MenuSectionItem>
+                <MenuSections>
+                  <MenuSectionItem
+                    href="#banner"
+                    onClick={handleChangeSection}
+                    selected={urlHash === "#banner" || urlHash === ""}
+                  >
+                    {t("navigation_menu.home")}
+                  </MenuSectionItem>
+                  <MenuSectionItem
+                    href="#about"
+                    onClick={handleChangeSection}
+                    selected={urlHash === "#about"}
+                  >
+                    {t("navigation_menu.about")}
+                  </MenuSectionItem>
 
-            <MenuSectionItem
-              href="#projects"
-              onClick={handleChangeSection}
-              selected={urlHash === "#projects"}
-            >
-              {t("navigation_menu.projects")}
-            </MenuSectionItem>
+                  <MenuSectionItem
+                    href="#services"
+                    onClick={handleChangeSection}
+                    selected={urlHash === "#services"}
+                  >
+                    {t("navigation_menu.services")}
+                  </MenuSectionItem>
 
-            <MenuSectionItem
-              href="#contact"
-              onClick={handleChangeSection}
-              selected={urlHash === "#contact"}
-            >
-              {t("navigation_menu.contact")}
-            </MenuSectionItem>
-          </MenuSections>
+                  <MenuSectionItem
+                    href="#projects"
+                    onClick={handleChangeSection}
+                    selected={urlHash === "#projects"}
+                  >
+                    {t("navigation_menu.projects")}
+                  </MenuSectionItem>
 
-          <MenuLanguage className="language-switch">
-            <Menu>
-              <MenuButton>
-                <MenuLanguageContent>
-                  {selectedLanguageOption?.image}
-                  {selectedLanguageOption?.label}
-                </MenuLanguageContent>
-              </MenuButton>
+                  <MenuSectionItem
+                    href="#contact"
+                    onClick={handleChangeSection}
+                    selected={urlHash === "#contact"}
+                  >
+                    {t("navigation_menu.contact")}
+                  </MenuSectionItem>
+                </MenuSections>
 
-              <MenuList>
-                {languageOptions.map((lang) => {
-                  return (
-                    <MenuItem
-                      key={lang.key}
-                      onClick={() => handleChangeLanguage(lang.key)}
-                    >
+                <MenuLanguage className="language-switch">
+                  <Menu>
+                    <MenuButton>
                       <MenuLanguageContent>
-                        {lang.image}
-                        {lang.label}
+                        {selectedLanguageOption?.image}
+                        {selectedLanguageOption?.label}
                       </MenuLanguageContent>
-                    </MenuItem>
-                  );
-                })}
-              </MenuList>
-            </Menu>
-          </MenuLanguage>
+                    </MenuButton>
 
-          <MenuTheme onClick={handleChangeThemeColor}>
-            <IconButton
-              icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
-              aria-label={
-                isThemeLightSelected
-                  ? t("theme_switch.dark")
-                  : t("theme_switch.light")
-              }
-              borderRadius={50}
-              size="xs"
-            />
-            <span>
-              {isThemeLightSelected
-                ? t("theme_switch.dark")
-                : t("theme_switch.light")}
-            </span>
-          </MenuTheme>
-        </NavigateContent>
+                    <MenuList>
+                      {languageOptions.map((lang) => {
+                        return (
+                          <MenuItem
+                            key={lang.key}
+                            onClick={() => handleChangeLanguage(lang.key)}
+                          >
+                            <MenuLanguageContent>
+                              {lang.image}
+                              {lang.label}
+                            </MenuLanguageContent>
+                          </MenuItem>
+                        );
+                      })}
+                    </MenuList>
+                  </Menu>
+                </MenuLanguage>
 
-        <MainContent isSideMenuOpen={isSideMenuOpen}>
-          <TopBarContent isSideMenuOpen={isSideMenuOpen}>
+                <MenuTheme onClick={handleChangeThemeColor}>
+                  <IconButton
+                    icon={isThemeLightSelected ? <FaMoon /> : <FaSun />}
+                    aria-label={
+                      isThemeLightSelected
+                        ? t("theme_switch.dark")
+                        : t("theme_switch.light")
+                    }
+                    borderRadius={50}
+                    size="xs"
+                  />
+                  <span>
+                    {isThemeLightSelected
+                      ? t("theme_switch.dark")
+                      : t("theme_switch.light")}
+                  </span>
+                </MenuTheme>
+              </NavigateContent>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+
+        <MainContent>
+          <TopBarContent>
             <a href="#banner">{t("top_bar_menu.title")}</a>
 
-            <FaBarsIcon onClick={handleShowNavigationMenu} />
+            {isMobileScreen && (
+              <FaBarsIcon onClick={handleShowNavigationMenu} />
+            )}
           </TopBarContent>
 
           <BannerSection id="banner">
@@ -399,7 +419,6 @@ export const Home = () => {
                 onSubmit={handleSendMessage}
               >
                 {({ errors, touched }) => {
-                  console.log("errors: ", errors);
                   return (
                     <Form>
                       <SenderInfoContainer>

@@ -2,4 +2,6 @@ export type State = {
   isMobileScreen: boolean;
 };
 
-export type Action = {};
+export type Action = {
+  updateIsMobileScreen: (data: boolean) => void;
+};

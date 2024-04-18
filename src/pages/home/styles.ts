@@ -7,21 +7,13 @@ export const Container = styled.div`
   color: ${(props) => props.theme.colors.primary};
 `;
 
-export const NavigateContent = styled.nav<{ isSideMenuOpen: boolean }>`
-  position: fixed;
-  width: 17rem;
+export const NavigateContent = styled.nav`
   height: 100vh;
   display: flex;
   flex-direction: column;
   border-right: 1px solid ${(props) => props.theme.colors.separator};
   background: ${(props) => props.theme.colors.background_b};
   padding: 2rem;
-  left: ${(props) => (props.isSideMenuOpen ? "" : "100%")};
-
-  @media (max-width: 900px) {
-    z-index: 1000;
-    width: ${(props) => (props.isSideMenuOpen ? "100vw" : "0")};
-  }
 `;
 
 export const MenuSections = styled.div`
@@ -75,17 +67,18 @@ export const MenuTheme = styled.div`
   }
 `;
 
-export const MainContent = styled.div<{ isSideMenuOpen: boolean }>`
-  margin-left: ${(props) =>
-    props.isSideMenuOpen ? "17rem" : 0}; //relative to NavigateContent
+export const MainContent = styled.div`
+  margin-left: 17rem; //relative to NavigateContent
+
+  @media (max-width: 900px) {
+    margin-left: 0;
+  }
 `;
 
-export const TopBarContent = styled.div<{ isSideMenuOpen: boolean }>`
+export const TopBarContent = styled.div`
   position: fixed;
   height: 3.5rem;
-  width: calc(
-    100vw - ${(props) => (props.isSideMenuOpen ? "17rem" : "0px")}
-  ); //relative to NavigateContent
+  width: calc(100vw - 17rem); //relative to NavigateContent
   background: ${(props) => props.theme.colors.background_b};
   border-bottom: 1px solid ${(props) => props.theme.colors.separator};
   display: flex;

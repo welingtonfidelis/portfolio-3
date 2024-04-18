@@ -17,6 +17,7 @@ import { ThemeColor } from "./enum/themeColor";
 import { browserStorage } from "./services/localStorage";
 import { ApplicationStorage } from "./enum/applicationStorage";
 import { useEffect } from "react";
+import { commonStore } from "./store/commonStore";
 
 const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
 
@@ -24,9 +25,12 @@ function App() {
   const { language, themeColor, updateThemeColor, updateLanguage } =
     preferencesStore();
   const { getFromStorage } = browserStorage();
+  const { updateIsMobileScreen } = commonStore();
 
   const themeColorOnStorage = getFromStorage(PREFERENCE_THEME_COLOR);
   const languageOnStorage = getFromStorage(PREFERENCE_LANGUAGE);
+
+  const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
   useEffect(() => {
     if (themeColorOnStorage) updateThemeColor(themeColorOnStorage);
@@ -43,7 +47,18 @@ function App() {
     i18n.changeLanguage(language);
   }, [language]);
 
-  const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
+  useEffect(() => {
+    const handleResize = () => {
+      updateIsMobileScreen(window.innerWidth <= 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [updateIsMobileScreen]);
 
   return (
     <ChakraProvider
