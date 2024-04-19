@@ -410,26 +410,44 @@
     "success_send": "Email enviado com sucesso!",
     "error_send": "Erro ao enviar email. Por favor, tente novamente."
   },
-  "cv_back_page": "Voltar para o Portfólio",
-  "cv_download": "Baixar",
-  "cv_invalid_size_donwload": "Use a 'Versão Desktop' para baixar",
-  "education": {
-    "title": "Educação",
-    "list": [
-      {
-        "title": "Bacharel em Ciência da Computação",
-        "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
-        "start": "2015",
-        "end": "2018"
-      }
-    ]
-  },
-  "language": {
-    "title": "Idiomas",
-    "portuguese": "Português",
-    "english": "Inglês",
-    "portuguese_lvl": "Português - Fluente",
-    "english_lvl": "Inglês - Intermediário"
+  "curriculum": {
+    "about_me": "Eu sou desenvolvedor full-stack web",
+    "back_page": "Voltar para o Portfólio",
+    "download": "Baixar",
+    "contact": {
+      "title": "Contato",
+      "list": [
+        { "title": "welingtonfidelis@gmail.com" },
+        { "title": "www.welingtonfidelis.com.br" },
+        { "title": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127" },
+        { "title": "github.com/welingtonfidelis" },
+        { "title": "Minas Gerais, Brazil" }
+      ]
+    },
+    "education": {
+      "title": "Educação",
+      "list": [
+        {
+          "title": "Bacharel em Ciência da Computação",
+          "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
+          "start": "2015",
+          "end": "2018"
+        }
+      ]
+    },
+    "language": {
+      "title": "Idiomas",
+      "list": [
+        {
+          "title": "Português",
+          "level": "Nativo"
+        },
+        {
+          "title": "Inglês",
+          "level": "Intermediário"
+        }
+      ]
+    }
   },
   "easter_egg_back_page": "Voltar para o Portfólio",
   "easter_egg_text": "Obrigado por visitar meu site, sua presença aqui é <strong>muito</strong> importante pra mim 😄. <br /> Mas, por agora, relaxe. Deixa as coisas mais pesadas fora daqui e sinta a música...",

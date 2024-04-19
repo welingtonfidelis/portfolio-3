@@ -411,27 +411,40 @@
     "success_send": "Email successfully sent!",
     "error_send": "Error sending email. Please, try again."
   },
-  "cv_back_page": "Back to Portfolio",
-  "cv_download": "Download",
-  "cv_invalid_size_donwload": "Use 'Desktop Mode' to download",
-  "education": {
-    "title": "Education",
-    "list": [
-      {
-        "title": "Computer Science Degree",
-        "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
-        "start": "2015",
-        "end": "2018"
-      }
-    ]
+  "curriculum": {
+    "about_me": "I'm a Full-Stack Web Developer",
+    "back_page": "Back to Portfolio",
+    "download": "Download",
+    "contact": {
+      "title": "Contact",
+      "list": [
+        { "title": "welingtonfidelis@gmail.com" },
+        { "title": "www.welingtonfidelis.com.br" },
+        { "title": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127" },
+        { "title": "github.com/welingtonfidelis" },
+        { "title": "Minas Gerais, Brazil" }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "list": [
+        {
+          "title": "Computer Science Degree",
+          "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
+          "start": "2015",
+          "end": "2018"
+        }
+      ]
+    },
+    "language": {
+      "title": "Languages",
+      "portuguese": "Portuguese",
+      "english": "English",
+      "portuguese_lvl": "Portuguese: Fluent",
+      "english_lvl": "English: Intermediate"
+    }
   },
-  "language": {
-    "title": "Languages",
-    "portuguese": "Portuguese",
-    "english": "English",
-    "portuguese_lvl": "Portuguese: Fluent",
-    "english_lvl": "English: Intermediate"
-  },
+
   "easter_egg_back_page": "Back to Portfolio",
   "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music...",
   "not_found": {
