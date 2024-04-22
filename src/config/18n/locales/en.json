@@ -10,14 +10,23 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "language": {
+    "title": "Languages",
+    "portuguese": "Portuguese",
+    "english": "English",
+    "portuguese_level": "Native",
+    "english_level": "Intermediate"
+  },
   "theme_switch": {
     "light": "Switch to Light Mode",
     "dark": "Switch to Dark Mode"
   },
   "about_me": {
     "title": "About Me",
-    "office": "I'm a Full-Stack Web Developer.",
-    "description": "Computer Scientist since 2018, passionate about technology, family and nature, I am always looking to improve, sharing what I know and have fun creating anything that rounds my interests. <br /><br /> I tried to just stay as a Back-End, but honestly, I love to see a screen with functional buttons and inputs, so I'm always working with the Front-End too 😝. I don't hate desktop development model or anything, but I think Web is the best, that's why I focused on the Web world, learning HTML, CSS and JavaScript and I intend on moving to something more complex later, like Node.js and React. <br /><br /> I'm always with some project and ideas motivating me to study and practise, I love feeling productive, so if there's something you want to discuss, do make it happen, talk to me, I'd love to contribute and help 😉.",
+    "office": "I'm a Full-Stack Web Developer",
+    "description_part_1": "Computer Scientist since 2018, passionate about technology, family and nature, I am always looking to improve, sharing what I know and have fun creating anything that rounds my interests.",
+    "description_part_2": "I tried to just stay as a Back-End, but honestly, I love to see a screen with functional buttons and inputs, so I'm always working with the Front-End too. I don't hate desktop development model or anything, but I think Web is the best, that's why I focused on the Web world, learning HTML, CSS and JavaScript and I intend on moving to something more complex later, like Node.js and React.",
+    "description_part_3": "I'm always with some project and ideas motivating me to study and practise, I love feeling productive, so if there's something you want to discuss, do make it happen, talk to me, I'd love to contribute and help.",
     "view_cv": "View my CV"
   },
   "services": {
@@ -30,7 +39,9 @@
         "position": "Full-Stack Developer",
         "start": "2021",
         "end": "Present",
-        "description": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
+        "description_part_1": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React.",
+        "description_part_2": "Technologies I had contact:",
+        "description_part_3": "Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -38,7 +49,9 @@
         "position": "Back-End Developer",
         "start": "2020",
         "end": "2021",
-        "description": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React. <br/><br/> Technologies I had contact: <br/> Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
+        "description_part_1": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React.",
+        "description_part_2": "Technologies I had contact:",
+        "description_part_3": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -46,7 +59,9 @@
         "position": "Full-Stack Developer",
         "start": "2018",
         "end": "2020",
-        "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC. <br/> <br/> Technologies I had contact: <br/> PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description_part_1": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC.",
+        "description_part_2": "Technologies I had contact:",
+        "description_part_3": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
@@ -54,7 +69,7 @@
         "position": "Computer Technician",
         "start": "2009",
         "end": "2018",
-        "description": "As computer technician, I worked on some companies and as autonomous, working with maintenance of desktop computers, laptops, network infrastructure and client attendance."
+        "description_part_1": "As computer technician, I worked on some companies and as autonomous, working with maintenance of desktop computers, laptops, network infrastructure and client attendance."
       }
     ]
   },
@@ -411,40 +426,23 @@
     "success_send": "Email successfully sent!",
     "error_send": "Error sending email. Please, try again."
   },
-  "curriculum": {
-    "about_me": "I'm a Full-Stack Web Developer",
-    "back_page": "Back to Portfolio",
-    "download": "Download",
-    "contact": {
-      "title": "Contact",
-      "list": [
-        { "title": "welingtonfidelis@gmail.com" },
-        { "title": "www.welingtonfidelis.com.br" },
-        { "title": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127" },
-        { "title": "github.com/welingtonfidelis" },
-        { "title": "Minas Gerais, Brazil" }
-      ]
-    },
-    "education": {
-      "title": "Education",
-      "list": [
-        {
-          "title": "Computer Science Degree",
-          "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
-          "start": "2015",
-          "end": "2018"
-        }
-      ]
-    },
-    "language": {
-      "title": "Languages",
-      "portuguese": "Portuguese",
-      "english": "English",
-      "portuguese_lvl": "Portuguese: Fluent",
-      "english_lvl": "English: Intermediate"
-    }
+  "curriculum_back_page": "Back to Portfolio",
+  "email": "welingtonfidelis@gmail.com",
+  "site": "www.welingtonfidelis.com.br",
+  "linkedin": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127",
+  "github": "github.com/welingtonfidelis",
+  "location": "Minas Gerais, Brazil",
+  "education": {
+    "title": "Education",
+    "list": [
+      {
+        "title": "Computer Science Degree",
+        "institution": "IFSULDEMINAS Campus Passos, Minas Gerais",
+        "start": "2015",
+        "end": "2018"
+      }
+    ]
   },
-
   "easter_egg_back_page": "Back to Portfolio",
   "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music...",
   "not_found": {
@@ -462,6 +460,7 @@
     "button_send": "Send",
     "button_exit": "Exit",
     "button_close": "Close",
+    "button_download": "Download",
     "required_input_value": "Field required",
     "text_or": "Or",
     "years": "years"

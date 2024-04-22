@@ -25,7 +25,7 @@ export const Container = styled.div`
     text-transform: uppercase;
   }
 
-  & p {
+  & span {
     text-align: center;
   }
 `;

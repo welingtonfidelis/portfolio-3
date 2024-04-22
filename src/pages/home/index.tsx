@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import {
   FaLinkedin,
   FaInstagram,
@@ -77,7 +77,6 @@ export const Home = () => {
   const { language, updateLanguage, themeColor, updateThemeColor } =
     preferencesStore();
   const { isMobileScreen } = commonStore();
-  console.log("isMobileScreen: ", isMobileScreen);
   const { setOnStorage } = browserStorage();
   const { toggleColorMode } = useColorMode();
   const {
@@ -329,7 +328,17 @@ export const Home = () => {
 
             <AboutSectionContent>
               <AboutSectionDescription>
-                <Trans i18nKey="about_me.description" />
+                <span>{t("about_me.description_part_1")}</span>
+                
+                <br/>
+                <br/>
+                
+                <span>{t("about_me.description_part_2")}</span>
+                
+                <br/>
+                <br/>
+                
+                <span>{t("about_me.description_part_3")}</span>
               </AboutSectionDescription>
 
               <AboutSectionImage>
