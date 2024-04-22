@@ -9,8 +9,7 @@ import {
 } from "@react-pdf/renderer";
 import { useTranslation } from "react-i18next";
 import { EducationInterface } from "../../domains/Education";
-import { LanguageInterface } from "../../domains/Language";
-import { ContactInterface } from "../../domains/Contact";
+import { JobInterface } from "../../domains/Job";
 
 export const FullCurriculumPdf = () => {
   const { t } = useTranslation();
@@ -19,7 +18,8 @@ export const FullCurriculumPdf = () => {
     background_a: "#003147",
     background_b: "#fff",
     primary: "#333",
-    secondary: "#03a9f4",
+    secondary: "#0388c5",
+    tertiary: "#6c6d6e",
   };
 
   const styles = StyleSheet.create({
@@ -29,22 +29,20 @@ export const FullCurriculumPdf = () => {
       backgroundColor: colorTheme.background_a,
       height: "100%",
       letterSpacing: ".5px",
+      lineHeight: "1.1px",
+      fontSize: "10.5px",
     },
     horizontalSeparator: {
-      borderBottom: "0.5px solid #fff",
+      borderBottom: "0.2px solid #fff",
       width: "100%",
-      margin: "22px 0",
     },
+
     sectionLeft: {
       padding: "30px",
       color: colorTheme.background_b,
       display: "flex",
       flexDirection: "column",
-      maxWidth: "210px",
-    },
-    sectionRight: {
-      backgroundColor: "red",
-      flex: 1,
+      maxWidth: "215px",
     },
     profileImage: {
       marginHorizontal: "auto",
@@ -63,9 +61,8 @@ export const FullCurriculumPdf = () => {
       marginHorizontal: "auto",
     },
     profileAbout: {
-      marginTop: 12,
+      margin: "18px 0",
       textTransform: "uppercase",
-      fontSize: "9px",
       maxWidth: "200px",
       textAlign: "center",
       marginHorizontal: "auto",
@@ -75,27 +72,19 @@ export const FullCurriculumPdf = () => {
       paddingLeft: "10px",
     },
 
-    contactContent: {
-      fontSize: "10px",
-    },
-    contactTitle: {
-      fontSize: "16px",
+    contactContent: {},
+    sectionLeftTitle: {
+      fontSize: "13px",
       fontFamily: "Helvetica-Bold",
+      marginTop: "22px",
       marginBottom: "11px",
+      textTransform: "uppercase",
     },
     contactText: {
       marginBottom: "7px",
     },
 
-    educationContent: {
-      fontSize: "10px",
-    },
-    educationTitle: {
-      fontSize: "13px",
-      fontFamily: "Helvetica-Bold",
-      marginTop: "22px",
-      marginBottom: "11px",
-    },
+    educationContent: {},
     educationDateText: {
       marginBottom: "6px",
     },
@@ -107,19 +96,52 @@ export const FullCurriculumPdf = () => {
       marginBottom: "6px",
     },
 
-    languageContent: {
-      fontSize: "10px",
+    languageContent: {},
+    languageText: {
+      marginBottom: "6px",
     },
-    languageTitle: {
+
+    sectionRight: {
+      backgroundColor: colorTheme.background_b,
+      flex: 1,
+      paddingHorizontal: "16px",
+    },
+    sectionRightTitle: {
       fontSize: "13px",
       fontFamily: "Helvetica-Bold",
       marginTop: "22px",
       marginBottom: "11px",
+      textTransform: "uppercase",
+      color: colorTheme.background_a
     },
-    languageText: {
+    aboutDescription: {
+      color: colorTheme.primary,
+      marginBottom: "12px",
+    },
+    serviceContent: {
+      display: "flex",
+      flexDirection: "row",
+      marginBottom: "16px",
+    },
+    serviceSectionLeftContent: {
+      width: "100px",
+    },
+    serviceSectionLeftText: {
+      color: colorTheme.tertiary,
       marginBottom: "6px",
+      textTransform: "uppercase",
+    },
+    serviceSectionRightContent: {
+      flex: 1,
+    },
+    serviceSectionRightTitle: {
+      textTransform: "uppercase",
+      color: colorTheme.secondary,
+      marginBottom: "10px",
     },
   });
+
+  const Br = () => "\n";
 
   return (
     //   {/* TODO remove PDFViewer that when create Download mode */}
@@ -137,37 +159,31 @@ export const FullCurriculumPdf = () => {
             </Text>
 
             <Text style={styles.profileAbout} wrap>
-              {t("curriculum.about_me")}
+              {t("about_me.office")}
             </Text>
 
             <Text style={styles.horizontalSeparator} />
 
             <View style={styles.contactContent}>
-              <Text style={styles.contactTitle}>
-                {t("curriculum.contact.title")}
+              <Text style={styles.sectionLeftTitle}>
+                {t("contact.subtitle")}
               </Text>
 
               <View style={styles.leftSubListContent}>
-                {(
-                  t("curriculum.contact.list", {
-                    returnObjects: true,
-                  }) as ContactInterface[]
-                ).map((item, index) => (
-                  <View key={index}>
-                    <Text style={styles.contactText}>{item.title}</Text>
-                  </View>
-                ))}
+                <Text style={styles.contactText}>{t("email")}</Text>
+                <Text style={styles.contactText}>{t("site")}</Text>
+                <Text style={styles.contactText}>{t("linkedin")}</Text>
+                <Text style={styles.contactText}>{t("github")}</Text>
+                <Text style={styles.contactText}>{t("location")}</Text>
               </View>
             </View>
 
             <View style={styles.educationContent}>
-              <Text style={styles.educationTitle}>
-                {t("curriculum.education.title")}
-              </Text>
+              <Text style={styles.sectionLeftTitle}>{t("education.title")}</Text>
 
               <View style={styles.leftSubListContent}>
                 {(
-                  t("curriculum.education.list", {
+                  t("education.list", {
                     returnObjects: true,
                   }) as EducationInterface[]
                 ).map((item, index) => (
@@ -185,28 +201,67 @@ export const FullCurriculumPdf = () => {
             </View>
 
             <View style={styles.languageContent}>
-              <Text style={styles.languageTitle}>
-                {t("curriculum.language.title")}
-              </Text>
+              <Text style={styles.sectionLeftTitle}>{t("language.title")}</Text>
 
               <View style={styles.leftSubListContent}>
-                {(
-                  t("curriculum.language.list", {
-                    returnObjects: true,
-                  }) as LanguageInterface[]
-                ).map((item, index) => (
-                  <View key={index}>
-                    <Text style={styles.languageText}>
-                      {item.title} - {item.level}
-                    </Text>
-                  </View>
-                ))}
+                <Text style={styles.languageText}>
+                  {t("language.portuguese")} - {t("language.portuguese_level")}
+                </Text>
+
+                <Text style={styles.languageText}>
+                  {t("language.english")} - {t("language.english_level")}
+                </Text>
               </View>
             </View>
           </View>
 
           <View style={styles.sectionRight}>
-            <Text>Section #2</Text>
+            <Text style={styles.sectionRightTitle}>{t("about_me.title")}</Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_1")}
+            </Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_2")}
+            </Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_3")}
+            </Text>
+
+            <Text style={styles.sectionRightTitle}>{t("services.title")}</Text>
+            {(
+              t("services.list", {
+                returnObjects: true,
+              }) as JobInterface[]
+            ).map((item, index) => (
+              <View style={styles.serviceContent} key={index}>
+                <View style={styles.serviceSectionLeftContent}>
+                  <Text style={styles.serviceSectionLeftText}>
+                    {item.start} - {item.end}
+                  </Text>
+                  <Text style={styles.serviceSectionLeftText}>
+                    {item.company_name}
+                  </Text>
+                </View>
+
+                <View style={styles.serviceSectionRightContent}>
+                  <Text style={styles.serviceSectionRightTitle}>
+                    {item.position}
+                  </Text>
+                  <Text>{t(item.description_part_1)}</Text>
+                  <Text>
+                    <Br />
+                  </Text>
+
+                  {item.description_part_2 && (
+                    <Text>{t(item.description_part_2)}</Text>
+                  )}
+
+                  {item.description_part_3 && (
+                    <Text>{t(item.description_part_3)}</Text>
+                  )}
+                </View>
+              </View>
+            ))}
           </View>
         </Page>
       </Document>
