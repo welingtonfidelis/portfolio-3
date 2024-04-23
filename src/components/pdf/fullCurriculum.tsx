@@ -112,7 +112,7 @@ export const FullCurriculumPdf = () => {
       marginTop: "22px",
       marginBottom: "11px",
       textTransform: "uppercase",
-      color: colorTheme.background_a
+      color: colorTheme.background_a,
     },
     aboutDescription: {
       color: colorTheme.primary,
@@ -155,7 +155,7 @@ export const FullCurriculumPdf = () => {
             />
 
             <Text style={styles.profileName} wrap>
-              Welington Fidelis de Sousa
+              {t("about_me.name")}
             </Text>
 
             <Text style={styles.profileAbout} wrap>
@@ -170,6 +170,7 @@ export const FullCurriculumPdf = () => {
               </Text>
 
               <View style={styles.leftSubListContent}>
+                <Text style={styles.contactText}>{t("phone")}</Text>
                 <Text style={styles.contactText}>{t("email")}</Text>
                 <Text style={styles.contactText}>{t("site")}</Text>
                 <Text style={styles.contactText}>{t("linkedin")}</Text>
@@ -179,7 +180,9 @@ export const FullCurriculumPdf = () => {
             </View>
 
             <View style={styles.educationContent}>
-              <Text style={styles.sectionLeftTitle}>{t("education.title")}</Text>
+              <Text style={styles.sectionLeftTitle}>
+                {t("education.title")}
+              </Text>
 
               <View style={styles.leftSubListContent}>
                 {(
@@ -189,11 +192,13 @@ export const FullCurriculumPdf = () => {
                 ).map((item, index) => (
                   <View key={index}>
                     <Text style={styles.educationDateText}>
-                      {item.start} - {item.end}
+                      {t(item.start)} - {t(item.end)}
                     </Text>
-                    <Text style={styles.educationCourseText}>{item.title}</Text>
+                    <Text style={styles.educationCourseText}>
+                      {t(item.title)}
+                    </Text>
                     <Text style={styles.educationInstitutionText}>
-                      {item.institution}
+                      {t(item.institution)}
                     </Text>
                   </View>
                 ))}
@@ -236,28 +241,28 @@ export const FullCurriculumPdf = () => {
               <View style={styles.serviceContent} key={index}>
                 <View style={styles.serviceSectionLeftContent}>
                   <Text style={styles.serviceSectionLeftText}>
-                    {item.start} - {item.end}
+                    {t(item.start)} - {t(item.end)}
                   </Text>
                   <Text style={styles.serviceSectionLeftText}>
-                    {item.company_name}
+                    {t(item.company_name)}
                   </Text>
                 </View>
 
                 <View style={styles.serviceSectionRightContent}>
                   <Text style={styles.serviceSectionRightTitle}>
-                    {item.position}
+                    {t(item.position)}
                   </Text>
-                  <Text>{t(item.description_part_1)}</Text>
-                  <Text>
-                    <Br />
-                  </Text>
+                  <Text>{t(item.description)}</Text>
 
-                  {item.description_part_2 && (
-                    <Text>{t(item.description_part_2)}</Text>
-                  )}
+                  {item.technologies && (
+                    <>
+                      <Text>
+                        <Br />
+                      </Text>
 
-                  {item.description_part_3 && (
-                    <Text>{t(item.description_part_3)}</Text>
+                      <Text>{t("technologies_contact")}:</Text>
+                      <Text>{t(item.technologies)}</Text>
+                    </>
                   )}
                 </View>
               </View>

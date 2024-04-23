@@ -10,20 +10,15 @@ export const JobDetail = (props: Props) => {
   return (
     <Container>
       <img loading="lazy" src={job.image_url} alt={job.position + "_image"} />
-      <h2>{job.position}</h2>
-      
-      <span>{t(job.description_part_1)}</span>
-      <br />
+      <h2>{t(job.position)}</h2>
 
-      {job.description_part_2 && (
-        <>
-          <span>{t(job.description_part_2)}</span>
-        </>
-      )}
+      <span>{t(job.description)}</span>
 
-      {job.description_part_3 && (
+      {job.technologies && (
         <>
-          <span>{t(job.description_part_3)}</span>
+          <br />
+          <span>{t("technologies_contact")}:</span>
+          <span>{t(job.technologies)}</span>
         </>
       )}
     </Container>

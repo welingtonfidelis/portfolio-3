@@ -4,7 +4,6 @@ export interface JobInterface {
   position: string;
   start: string;
   end: string;
-  description_part_1: string;
-  description_part_2?: string;
-  description_part_3?: string;
+  description: string;
+  technologies?: string;
 }

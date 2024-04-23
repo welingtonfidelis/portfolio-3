@@ -286,7 +286,7 @@ export const Home = () => {
                 alt="User profile-1"
               />
 
-              <h3>Welington Fidelis de Sousa</h3>
+              <h3>{t("about_me.name")}</h3>
 
               <p>{t("about_me.office")}</p>
               <Button
