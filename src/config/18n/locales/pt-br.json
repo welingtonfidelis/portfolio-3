@@ -21,6 +21,7 @@
     "dark": "Trocar para Modo Escuro"
   },
   "about_me": {
+    "name": "Welington Fidelis de Sousa",
     "title": "Sobre Mim",
     "office": "Eu sou um desenvolvedor Full-Stack Web",
     "description_part_1": "Cientista da Computação desde 2018, apaixonado por tecnologia, família e natureza. Estou sempre procurando melhorar, compartilhar o que já sei e me divertir criando qualquer coisa que me disperte interesse.",
@@ -38,9 +39,8 @@
         "position": "Desenvolvedor Full-Stack",
         "start": "2021",
         "end": "Atual",
-        "description_part_1": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React.",
-        "description_part_2": "Tecnologias que tive contato:",
-        "description_part_3": "Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Scrum"
+        "description": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React.",
+        "technologies": "Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -48,9 +48,8 @@
         "position": "Desenvolvedor Back-End",
         "start": "2020",
         "end": "2021",
-        "description_part_1": "Na Tech4Humans Brasil, trabalhando no t ime de Back-End em um projeto de mensageria em tempo real para atendimento humanizado, construído em Node.js e React.",
-        "description_part_2": "Tecnologias que tive contato:",
-        "description_part_3": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
+        "description": "Na Tech4Humans Brasil, trabalhando no t ime de Back-End em um projeto de mensageria em tempo real para atendimento humanizado, construído em Node.js e React.",
+        "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -58,9 +57,8 @@
         "position": "Desenvolvedor Full-Stack",
         "start": "2018",
         "end": "2020",
-        "description_part_1": "Na Ranor Rastreamento, trabalhando no Back-End, Front-End e Mobile em projetos focados no rastreamento veícular, gerenciamento de frota e logística, construídos em Node.js, PHP e IONIC.",
-        "description_part_2": "Tecnologias que tive contato:",
-        "description_part_3": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description": "Na Ranor Rastreamento, trabalhando no Back-End, Front-End e Mobile em projetos focados no rastreamento veícular, gerenciamento de frota e logística, construídos em Node.js, PHP e IONIC.",
+        "technologies": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
@@ -68,7 +66,7 @@
         "position": "Técnico em Informática",
         "start": "2009",
         "end": "2018",
-        "description_part_1": "Como técnico em informática, trabalhei em algumas empresa e como autônomo, atuando com manutenção de computadores, notebooks, infraestrutura de rede e atendimento ao cliente."
+        "description": "Como técnico em informática, trabalhei em algumas empresa e como autônomo, atuando com manutenção de computadores, notebooks, infraestrutura de rede e atendimento ao cliente."
       }
     ]
   },
@@ -436,6 +434,10 @@
       }
     ]
   },
+  "objective": {
+    "title": "Objetivo",
+    "description": "Busco uma oportunidade desafiadora como desenvolvedor web, onde eu possa aplicar minha experiência tanto no front-end quanto no back-end para contribuir com o crescimento e sucesso da empresa. Estou comprometido em aprender novas tecnologias e aprimorar minhas habilidades constantemente, buscando excelência na entrega de soluções e impulsionando a inovação no desenvolvimento de software."
+  },
   "not_found": {
     "title_message": "Oops!",
     "description_message": "Página não encontrada"
@@ -443,9 +445,11 @@
   "curriculum_back_page": "Voltar para o Portfólio",
   "email": "welingtonfidelis@gmail.com",
   "site": "www.welingtonfidelis.com.br",
-  "linkedin": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127",
+  "linkedin": "linkedin.com/in/welington-fidelis",
   "github": "github.com/welingtonfidelis",
   "location": "Minas Gerais, Brazil",
+  "phone": "(35) 99926-1656",
+  "technologies_contact": "Tecnologias que tive contato",
   "easter_egg_back_page": "Voltar para o Portfólio",
   "easter_egg_text": "Obrigado por visitar meu site, sua presença aqui é <strong>muito</strong> importante pra mim 😄. <br /> Mas, por agora, relaxe. Deixa as coisas mais pesadas fora daqui e sinta a música...",
   "generic": {

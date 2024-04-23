@@ -39,9 +39,8 @@
         "position": "Full-Stack Developer",
         "start": "2021",
         "end": "Present",
-        "description_part_1": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React.",
-        "description_part_2": "Technologies I had contact:",
-        "description_part_3": "Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
+        "description": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React.",
+        "technologies": "Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -49,9 +48,8 @@
         "position": "Back-End Developer",
         "start": "2020",
         "end": "2021",
-        "description_part_1": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React.",
-        "description_part_2": "Technologies I had contact:",
-        "description_part_3": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
+        "description": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React.",
+        "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
       },
       {
         "image_url": "/images/icon-1.png",
@@ -59,9 +57,8 @@
         "position": "Full-Stack Developer",
         "start": "2018",
         "end": "2020",
-        "description_part_1": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC.",
-        "description_part_2": "Technologies I had contact:",
-        "description_part_3": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC.",
+        "technologies": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
@@ -69,7 +66,7 @@
         "position": "Computer Technician",
         "start": "2009",
         "end": "2018",
-        "description_part_1": "As computer technician, I worked on some companies and as autonomous, working with maintenance of desktop computers, laptops, network infrastructure and client attendance."
+        "description": "As computer technician, I worked on some companies and as autonomous, working with maintenance of desktop computers, laptops, network infrastructure and client attendance."
       }
     ]
   },
@@ -429,9 +426,10 @@
   "curriculum_back_page": "Back to Portfolio",
   "email": "welingtonfidelis@gmail.com",
   "site": "www.welingtonfidelis.com.br",
-  "linkedin": "linkedin.com/in/welington-fidelis-de-sousa-3944a6127",
+  "linkedin": "linkedin.com/in/welington-fidelis",
   "github": "github.com/welingtonfidelis",
   "location": "Minas Gerais, Brazil",
+  "phone": "(35) 99926-1656",
   "education": {
     "title": "Education",
     "list": [
@@ -443,12 +441,17 @@
       }
     ]
   },
-  "easter_egg_back_page": "Back to Portfolio",
-  "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music...",
+  "objective": {
+    "title": "Objective",
+    "description": "I am seeking a challenging opportunity as a web developer, where I can apply my experience in both front-end and back-end to contribute to the growth and success of the company. I am committed to learning new technologies and continuously enhancing my skills, striving for excellence in delivering solutions and driving innovation in software development."
+  },
   "not_found": {
     "title_message": "Oops!",
     "description_message": "Page not found"
   },
+  "technologies_contact": "Technologies I had contact",
+  "easter_egg_back_page": "Back to Portfolio",
+  "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music...",
   "generic": {
     "button_save": "Save",
     "button_cancel": "Cancel",
