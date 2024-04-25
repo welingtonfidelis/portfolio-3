@@ -1,10 +1,4 @@
-import {
-  FaEnvelope,
-  FaGithub,
-  FaGlobeAmericas,
-  FaLinkedin,
-  FaMapMarker,
-} from "react-icons/fa";
+import { FaArrowLeft, FaCloudDownloadAlt } from "react-icons/fa";
 import styled from "styled-components";
 
 const colorTheme = {
@@ -15,24 +9,36 @@ const colorTheme = {
   tertiary: "#6c6d6e",
 };
 
-export const FaEnvelopeIcon = styled(FaEnvelope)``;
+export const BackIcon = styled(FaArrowLeft)``;
 
-export const FaGlobeAmericasIcon = styled(FaGlobeAmericas)``;
-
-export const FaLinkedinIcon = styled(FaLinkedin)``;
-
-export const FaGithubIcon = styled(FaGithub)``;
-
-export const FaMapMarkerIcon = styled(FaMapMarker)``;
+export const DownloadIcon = styled(FaCloudDownloadAlt)``;
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const TopBarContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const MenuLanguageContent = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 1.6rem;
+    margin-right: 0.5rem;
+  }
+`;
+
+export const CvContent = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${colorTheme.background_a};
   height: 100%;
-  /* letter-spacing: 0.5px; */
-  /* line-height: 1.1px; */
-  /* font-size: 10.5px; */
 `;
 
 export const HorizontalSeparator = styled.div`

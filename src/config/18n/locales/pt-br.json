@@ -442,6 +442,8 @@
     "title_message": "Oops!",
     "description_message": "Página não encontrada"
   },
+  "full_curriculum": "CV completo",
+  "simple_curriculum": "CV simplificado",
   "curriculum_back_page": "Voltar para o Portfólio",
   "email": "welingtonfidelis@gmail.com",
   "site": "www.welingtonfidelis.com.br",
@@ -466,6 +468,7 @@
     "button_download": "Baixar",
     "required_input_value": "Campo obrigatório",
     "text_or": "Ou",
-    "years": "anos"
+    "text_years": "anos",
+    "text_loading": "Carregando"
   }
 }

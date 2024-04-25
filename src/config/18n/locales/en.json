@@ -423,13 +423,6 @@
     "success_send": "Email successfully sent!",
     "error_send": "Error sending email. Please, try again."
   },
-  "curriculum_back_page": "Back to Portfolio",
-  "email": "welingtonfidelis@gmail.com",
-  "site": "www.welingtonfidelis.com.br",
-  "linkedin": "linkedin.com/in/welington-fidelis",
-  "github": "github.com/welingtonfidelis",
-  "location": "Minas Gerais, Brazil",
-  "phone": "(35) 99926-1656",
   "education": {
     "title": "Education",
     "list": [
@@ -449,6 +442,15 @@
     "title_message": "Oops!",
     "description_message": "Page not found"
   },
+  "full_curriculum": "Full CV",
+  "simple_curriculum": "Simplified CV",
+  "curriculum_back_page": "Back to Portfolio",
+  "email": "welingtonfidelis@gmail.com",
+  "site": "www.welingtonfidelis.com.br",
+  "linkedin": "linkedin.com/in/welington-fidelis",
+  "github": "github.com/welingtonfidelis",
+  "location": "Minas Gerais, Brazil",
+  "phone": "(35) 99926-1656",
   "technologies_contact": "Technologies I had contact",
   "easter_egg_back_page": "Back to Portfolio",
   "easter_egg_text": "Thank you for visiting my site, your presence here is <strong>very </strong> important to me 😄. <br /> But, for now, relax. Leave the heavier stuff out of here and feel the music...",
@@ -466,6 +468,7 @@
     "button_download": "Download",
     "required_input_value": "Field required",
     "text_or": "Or",
-    "years": "years"
+    "text_years": "years",
+    "text_loading": "Loading"
   }
 }
