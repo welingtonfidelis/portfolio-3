@@ -38,7 +38,7 @@ export const FullCurriculumPdf = () => {
     },
 
     sectionLeft: {
-      padding: "30px",
+      padding: "20px",
       color: colorTheme.background_b,
       display: "flex",
       flexDirection: "column",
@@ -79,6 +79,7 @@ export const FullCurriculumPdf = () => {
       marginTop: "22px",
       marginBottom: "11px",
       textTransform: "uppercase",
+      color: colorTheme.secondary,
     },
     contactText: {
       marginBottom: "7px",
@@ -192,13 +193,13 @@ export const FullCurriculumPdf = () => {
                 ).map((item, index) => (
                   <View key={index}>
                     <Text style={styles.educationDateText}>
-                      {t(item.start)} - {t(item.end)}
+                      {item.start} - {item.end}
                     </Text>
                     <Text style={styles.educationCourseText}>
-                      {t(item.title)}
+                      {item.title}
                     </Text>
                     <Text style={styles.educationInstitutionText}>
-                      {t(item.institution)}
+                      {item.institution}
                     </Text>
                   </View>
                 ))}
@@ -241,16 +242,16 @@ export const FullCurriculumPdf = () => {
               <View style={styles.serviceContent} key={index}>
                 <View style={styles.serviceSectionLeftContent}>
                   <Text style={styles.serviceSectionLeftText}>
-                    {t(item.start)} - {t(item.end)}
+                    {item.start} - {item.end}
                   </Text>
                   <Text style={styles.serviceSectionLeftText}>
-                    {t(item.company_name)}
+                    {item.company_name}
                   </Text>
                 </View>
 
                 <View style={styles.serviceSectionRightContent}>
                   <Text style={styles.serviceSectionRightTitle}>
-                    {t(item.position)}
+                    {item.position}
                   </Text>
                   <Text>{t(item.description)}</Text>
 
@@ -261,7 +262,7 @@ export const FullCurriculumPdf = () => {
                       </Text>
 
                       <Text>{t("technologies_contact")}:</Text>
-                      <Text>{t(item.technologies)}</Text>
+                      <Text>{item.technologies}</Text>
                     </>
                   )}
                 </View>
