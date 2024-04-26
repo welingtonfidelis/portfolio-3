@@ -108,7 +108,7 @@ export const ProjectDetail = (props: Props) => {
         </DetailContent>
       </Modal>
 
-      <PreviewContent onClick={() => setIsModalOpen(true)}>
+      <PreviewContent onClick={() => setIsModalOpen(true)} title={project.title}>
         <img src={project.images?.[0] ?? ""} alt="" width="80px" />
       </PreviewContent>
     </Container>
