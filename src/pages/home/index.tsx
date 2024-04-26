@@ -22,7 +22,7 @@ import {
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
 import { ProjectInterface } from "../../domains/Project.ts";
 import {
@@ -73,7 +73,6 @@ const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
 export const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { hash: urlHash } = useLocation();
   const { language, updateLanguage, themeColor, updateThemeColor } =
     preferencesStore();
   const { isMobileScreen } = commonStore();
@@ -184,42 +183,22 @@ export const Home = () => {
             {isMobileScreen && <DrawerCloseButton size="xs" margin={4} />}
 
             <MenuSections>
-              <MenuSectionItem
-                href="#banner"
-                onClick={handleChangeSection}
-                selected={urlHash === "#banner" || urlHash === ""}
-              >
+              <MenuSectionItem href="#banner" onClick={handleChangeSection}>
                 {t("navigation_menu.home")}
               </MenuSectionItem>
-              <MenuSectionItem
-                href="#about"
-                onClick={handleChangeSection}
-                selected={urlHash === "#about"}
-              >
+              <MenuSectionItem href="#about" onClick={handleChangeSection}>
                 {t("navigation_menu.about")}
               </MenuSectionItem>
 
-              <MenuSectionItem
-                href="#services"
-                onClick={handleChangeSection}
-                selected={urlHash === "#services"}
-              >
+              <MenuSectionItem href="#services" onClick={handleChangeSection}>
                 {t("navigation_menu.services")}
               </MenuSectionItem>
 
-              <MenuSectionItem
-                href="#projects"
-                onClick={handleChangeSection}
-                selected={urlHash === "#projects"}
-              >
+              <MenuSectionItem href="#projects" onClick={handleChangeSection}>
                 {t("navigation_menu.projects")}
               </MenuSectionItem>
 
-              <MenuSectionItem
-                href="#contact"
-                onClick={handleChangeSection}
-                selected={urlHash === "#contact"}
-              >
+              <MenuSectionItem href="#contact" onClick={handleChangeSection}>
                 {t("navigation_menu.contact")}
               </MenuSectionItem>
             </MenuSections>
@@ -329,15 +308,15 @@ export const Home = () => {
             <AboutSectionContent>
               <AboutSectionDescription>
                 <span>{t("about_me.description_part_1")}</span>
-                
-                <br/>
-                <br/>
-                
+
+                <br />
+                <br />
+
                 <span>{t("about_me.description_part_2")}</span>
-                
-                <br/>
-                <br/>
-                
+
+                <br />
+                <br />
+
                 <span>{t("about_me.description_part_3")}</span>
               </AboutSectionDescription>
 

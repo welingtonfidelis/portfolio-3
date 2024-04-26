@@ -21,14 +21,16 @@ export const MenuSections = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 18px;
 `;
 
-export const MenuSectionItem = styled.a<{ selected: boolean }>`
-  margin-top: 1rem;
+export const MenuSectionItem = styled.a`
+  margin-top: 0.6rem;
   transition: 0.5s;
-  opacity: ${(props) => (props.selected ? 1 : 0.7)};
-  font-weight: ${(props) => (props.selected ? 600 : 400)};
+  opacity: 0.7;
+  font-weight: 500;
   letter-spacing: 1px;
+  transition: 0.5s;
 
   &:hover {
     opacity: 1;
@@ -145,6 +147,11 @@ export const SocialContent = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.colors.primary};
     font-size: 1.2em;
+    transition: 0.5s;
+  }
+  
+  :hover {
+    color: ${(props) => props.theme.colors.tertiary};
   }
 `;
 
