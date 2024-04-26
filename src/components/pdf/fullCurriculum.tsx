@@ -150,7 +150,7 @@ export const FullCurriculum = () => {
         <View style={styles.sectionLeft}>
           <Image
             style={styles.profileImage}
-            src={"/public/images/user_1.jpg"}
+            src={"/images/user_1.jpg"}
           />
 
           <Text style={styles.profileName} wrap>

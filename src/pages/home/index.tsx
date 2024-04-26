@@ -91,7 +91,7 @@ export const Home = () => {
     {
       key: Language.EN,
       label: <span>{t("language.english")}</span>,
-      image: <img src={"/public/images/eua.png"} alt="EUA Flag" />,
+      image: <img src={"/images/eua.png"} alt="EUA Flag" />,
     },
     {
       key: Language.PT,
@@ -261,7 +261,7 @@ export const Home = () => {
             <ProfileContent>
               <img
                 loading="lazy"
-                src="/public/images/user_1.jpg"
+                src="/images/user_1.jpg"
                 alt="User profile-1"
               />
 
@@ -321,7 +321,7 @@ export const Home = () => {
               </AboutSectionDescription>
 
               <AboutSectionImage>
-                <img src="/public/images/user_2.jpg" alt="User profile-2" />
+                <img src="/images/user_2.jpg" alt="User profile-2" />
               </AboutSectionImage>
             </AboutSectionContent>
           </AboutSection>

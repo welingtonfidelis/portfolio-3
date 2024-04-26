@@ -57,7 +57,7 @@ export const Curriculum = () => {
     {
       key: Language.EN,
       label: <span>{t("language.english")}</span>,
-      image: <img src={"/public/images/eua.png"} alt="EUA Flag" />,
+      image: <img src={"/images/eua.png"} alt="EUA Flag" />,
     },
     {
       key: Language.PT,
@@ -152,7 +152,7 @@ export const Curriculum = () => {
       <CvContent>
         <SectionLeft>
           <ProfileImage>
-            <img src={"/public/images/user_1.jpg"} alt="" />
+            <img src={"/images/user_1.jpg"} alt="" />
           </ProfileImage>
 
           <ProfileName>{t("about_me.name")}</ProfileName>

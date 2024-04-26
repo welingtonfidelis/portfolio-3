@@ -2,7 +2,6 @@ import { Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-import balloonImage from "../../assets/balloon.png";
 import { Container, ImageContent, TextContent } from "./styles";
 
 export const NotFound = () => {
@@ -12,7 +11,7 @@ export const NotFound = () => {
   return (
     <Container>
       <ImageContent>
-        <img src={balloonImage} alt="Balloon image" />
+        <img src={"/images/balloon.png"} alt="Balloon image" />
       </ImageContent>
 
       <TextContent>
