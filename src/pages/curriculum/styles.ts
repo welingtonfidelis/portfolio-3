@@ -7,6 +7,7 @@ const colorTheme = {
   primary: "#333",
   secondary: "#0388c5",
   tertiary: "#6c6d6e",
+  separator:"#e2e8f0",
 };
 
 export const BackIcon = styled(FaArrowLeft)``;
@@ -39,6 +40,7 @@ export const CvContent = styled.div`
   flex-direction: row;
   background-color: ${colorTheme.background_a};
   height: 100%;
+  border: 1px solid ${colorTheme.separator};
 `;
 
 export const HorizontalSeparator = styled.div`
