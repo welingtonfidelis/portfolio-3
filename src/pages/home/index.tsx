@@ -178,6 +178,7 @@ export const Home = () => {
           maxWidth={isMobileScreen ? 500 : 272}
           useDrawerOverlay={isMobileScreen}
           blockScrollOnMount={isMobileScreen}
+          autoFocus={false}
         >
           <NavigateContent>
             {isMobileScreen && <DrawerCloseButton size="xs" margin={4} />}
