@@ -108,6 +108,7 @@ export const ProfileContent = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
+  text-align: center;
 
   & img {
     width: 16rem;

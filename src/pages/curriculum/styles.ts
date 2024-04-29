@@ -19,6 +19,7 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100%;
   min-width: 950px;
+  min-height: 1400px;
 `;
 
 export const TopBarContent = styled.div`
