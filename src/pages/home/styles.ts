@@ -250,30 +250,4 @@ export const ProjectSectionContainer = styled.div`
   }
 `;
 
-export const ContactSection = styled(SectionBase)``;
-
-export const FormContainer = styled.div`
-  flex: 1;
-
-  & form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-export const SenderInfoContainer = styled.div`
-  width: 100%;
-  display: flex;
-
-  :first-child {
-    margin-right: 10px;
-  }
-
-  @media (max-width: 700px) {
-    flex-direction: column;
-  }
-`;
-
 export const FaBarsIcon = styled(FaBars)``;

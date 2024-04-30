@@ -7,18 +7,13 @@ import {
   FaMoon,
   FaSun,
 } from "react-icons/fa";
-import { Formik, Form, Field, FieldProps } from "formik";
 import {
   DrawerCloseButton,
-  FormControl,
-  FormErrorMessage,
   IconButton,
-  Input,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Textarea,
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -31,10 +26,8 @@ import {
   AboutSectionDescription,
   AboutSectionImage,
   BannerSection,
-  ContactSection,
   Container,
   FaBarsIcon,
-  FormContainer,
   JobSection,
   JobSectionContainer,
   MainContent,
@@ -49,7 +42,6 @@ import {
   ProjectSectionContainer,
   SectionResume,
   SectionTitle,
-  SenderInfoContainer,
   SocialContent,
   TopBarContent,
 } from "./styles.ts";
@@ -63,8 +55,6 @@ import { ThemeColor } from "../../enum/themeColor.ts";
 import { browserStorage } from "../../services/localStorage.ts";
 import { ApplicationStorage } from "../../enum/applicationStorage.ts";
 import { commonStore } from "../../store/commonStore/index.ts";
-import { FormProps } from "./types.ts";
-import { formValidate } from "./helper/formValidate.ts";
 import { Drawer } from "../../components/drawer/index.tsx";
 
 const { CURRICULUM } = ApplicationRoutes;
@@ -83,7 +73,6 @@ export const Home = () => {
     onOpen: onOpenSideMenu,
     onClose: onCloseSideMenu,
   } = useDisclosure({ defaultIsOpen: !isMobileScreen });
-  const validateFormFields = formValidate();
 
   const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
@@ -103,12 +92,6 @@ export const Home = () => {
   const selectedLanguageOption = languageOptions.find(
     (lang) => lang.key === language
   );
-
-  const initialFormValues = {
-    name: "",
-    email: "",
-    message: "",
-  };
 
   const handleChangeSection = () => {
     if (isMobileScreen) onCloseSideMenu();
@@ -130,43 +113,6 @@ export const Home = () => {
 
     setOnStorage(PREFERENCE_THEME_COLOR, newThemeColor);
   };
-
-  const handleSendMessage = (values: FormProps) => {
-    console.log("values: ", values);
-  };
-
-  //   const handleSendEmail = async (values: any) => {
-  //     if (!mailLoading) {
-  //       setMailLoading(true);
-
-  //       try {
-  //         const { name, email, message } = values;
-  //         const subject = `Contact from portfolio - ${name}`;
-  //         const treatedMessage = (message + "").replace(
-  //           /(?:\r\n|\r|\n)/g,
-  //           "<br>"
-  //         );
-
-  //         const { data } = await axios.post("./api/mail", {
-  //           email,
-  //           subject,
-  //           message: treatedMessage,
-  //         });
-
-  //         if (data.ok) {
-  //           toast.success(t("contact.success_send"), { autoClose: 7000 });
-
-  //           form.resetFields();
-  //         }
-  //       } catch (error) {
-  //         toast.error(t("contact.error_send"), {
-  //           autoClose: false,
-  //         });
-  //       }
-
-  //       setMailLoading(false);
-  //     }
-  //   };
 
   return (
     <>
@@ -362,94 +308,7 @@ export const Home = () => {
               ))}
             </ProjectSectionContainer>
           </ProjectSection>
-
-          <ContactSection id="contact" className="contact adjust">
-            <SectionTitle>
-              {t("contact.title")}
-              <div />
-            </SectionTitle>
-
-            <SectionResume>{t("contact.description")}</SectionResume>
-
-            <FormContainer>
-              <Formik
-                initialValues={initialFormValues}
-                validationSchema={validateFormFields}
-                onSubmit={handleSendMessage}
-              >
-                {({ errors, touched }) => {
-                  return (
-                    <Form>
-                      <SenderInfoContainer>
-                        <Field name="name">
-                          {({ field }: FieldProps) => (
-                            <FormControl
-                              isInvalid={!!errors.name && touched.name}
-                              mb="2"
-                            >
-                              <Input
-                                {...field}
-                                borderRadius="none"
-                                placeholder={t("contact.input_name")}
-                              />
-                              <FormErrorMessage>{errors.name}</FormErrorMessage>
-                            </FormControl>
-                          )}
-                        </Field>
-
-                        <Field name="email">
-                          {({ field }: FieldProps) => (
-                            <FormControl
-                              isInvalid={!!errors.email && touched.email}
-                              mb="2"
-                            >
-                              <Input
-                                {...field}
-                                borderRadius="none"
-                                placeholder={t("contact.input_email")}
-                              />
-                              <FormErrorMessage>
-                                {errors.email}
-                              </FormErrorMessage>
-                            </FormControl>
-                          )}
-                        </Field>
-                      </SenderInfoContainer>
-
-                      <Field name="message">
-                        {({ field }: FieldProps) => (
-                          <FormControl
-                            isInvalid={!!errors.message && touched.message}
-                            mb="2"
-                          >
-                            <Textarea
-                              {...field}
-                              resize="none"
-                              rows={8}
-                              borderRadius="none"
-                              placeholder={t("contact.input_message")}
-                            />
-                            <FormErrorMessage>
-                              {errors.message}
-                            </FormErrorMessage>
-                          </FormControl>
-                        )}
-                      </Field>
-
-                      <Button title={t("contact.button_send")} type="submit" />
-                    </Form>
-                  );
-                }}
-              </Formik>
-            </FormContainer>
-          </ContactSection>
-
-          {/* <div className="easter-egg" onClick={handleEasterEgg}>
-          {easterEgg.text}
-        </div> */}
         </MainContent>
-
-        {/* <ToastContainer /> */}
       </Container>
     </>
   );
