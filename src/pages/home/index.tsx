@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import {
   FaLinkedin,
   FaInstagram,
-  FaTwitter,
   FaGithub,
   FaMoon,
   FaSun,
@@ -144,10 +143,6 @@ export const Home = () => {
               <MenuSectionItem href="#projects" onClick={handleChangeSection}>
                 {t("navigation_menu.projects")}
               </MenuSectionItem>
-
-              <MenuSectionItem href="#contact" onClick={handleChangeSection}>
-                {t("navigation_menu.contact")}
-              </MenuSectionItem>
             </MenuSections>
 
             <MenuLanguage className="language-switch">
@@ -223,7 +218,7 @@ export const Home = () => {
 
             <SocialContent>
               <a
-                href="https://www.linkedin.com/in/welington-fidelis-de-sousa-3944a6127"
+                href="https://www.linkedin.com/in/welington-fidelis"
                 target="_blank"
               >
                 <FaLinkedin />
@@ -234,10 +229,6 @@ export const Home = () => {
                 target="_blank"
               >
                 <FaInstagram />
-              </a>
-
-              <a href="https://twitter.com/welingtonfsousa" target="_blank">
-                <FaTwitter />
               </a>
 
               <a href="https://github.com/welingtonfidelis" target="_blank">
