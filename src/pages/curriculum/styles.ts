@@ -7,7 +7,7 @@ const colorTheme = {
   primary: "#333",
   secondary: "#0388c5",
   tertiary: "#6c6d6e",
-  separator:"#e2e8f0",
+  separator: "#e2e8f0",
 };
 
 export const BackIcon = styled(FaArrowLeft)``;
@@ -17,9 +17,7 @@ export const DownloadIcon = styled(FaCloudDownloadAlt)``;
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 950px;
-  min-height: 1400px;
+  min-width: 43rem;
 `;
 
 export const TopBarContent = styled.div`
@@ -41,7 +39,6 @@ export const CvContent = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${colorTheme.background_a};
-  height: 100%;
   border: 1px solid ${colorTheme.separator};
 `;
 
@@ -51,11 +48,16 @@ export const HorizontalSeparator = styled.div`
 `;
 
 export const SectionLeft = styled.div`
-  padding: 30px;
+  padding: 1.8rem;
   color: ${colorTheme.background_b};
   display: flex;
   flex-direction: column;
   width: 19rem;
+
+  @media (max-width: 900px) {
+    padding: 0.5rem;
+    width: 17rem;
+  }
 `;
 
 export const ProfileImage = styled.div`
@@ -142,6 +144,10 @@ export const SectionRight = styled.div`
   color: ${colorTheme.primary};
   flex: 1;
   padding: 0 2rem;
+
+  @media (max-width: 900px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const SectionRightTitle = styled.span`
