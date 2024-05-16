@@ -18,6 +18,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 43rem;
+  height: 100%;
 `;
 
 export const TopBarContent = styled.div`
@@ -37,6 +38,7 @@ export const MenuLanguageContent = styled.div`
 
 export const CvContent = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: row;
   background-color: ${colorTheme.background_a};
   border: 1px solid ${colorTheme.separator};
