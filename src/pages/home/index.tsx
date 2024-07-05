@@ -18,7 +18,6 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { ApplicationRoutes } from "../../enum/applicationRoutes.ts";
-import { ProjectInterface } from "../../domains/Project.ts";
 import {
   AboutSection,
   AboutSectionContent,
@@ -55,6 +54,8 @@ import { browserStorage } from "../../services/localStorage.ts";
 import { ApplicationStorage } from "../../enum/applicationStorage.ts";
 import { commonStore } from "../../store/commonStore/index.ts";
 import { Drawer } from "../../components/drawer/index.tsx";
+import { useGetProjectsList } from "../../services/requests/projects/index.ts";
+import { Preloader } from "../../components/preloader/index.tsx";
 
 const { CURRICULUM } = ApplicationRoutes;
 const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
@@ -72,6 +73,7 @@ export const Home = () => {
     onOpen: onOpenSideMenu,
     onClose: onCloseSideMenu,
   } = useDisclosure({ defaultIsOpen: !isMobileScreen });
+  const { data: projects, isLoading: isLoadingProjects } = useGetProjectsList();
 
   const isThemeLightSelected = themeColor === ThemeColor.LIGHT;
 
@@ -289,15 +291,15 @@ export const Home = () => {
             </SectionTitle>
             <SectionResume>{t("projects.description")}</SectionResume>
 
-            <ProjectSectionContainer>
-              {(
-                t("projects.list", {
-                  returnObjects: true,
-                }) as ProjectInterface[]
-              ).map((item, index) => (
-                <ProjectDetail project={item} key={index} />
-              ))}
-            </ProjectSectionContainer>
+            <Preloader isLoading={isLoadingProjects}>
+              <ProjectSectionContainer>
+                {
+                  projects?.map((item, index) => (
+                    <ProjectDetail project={item} key={index} />
+                  ))
+                }
+              </ProjectSectionContainer>
+            </Preloader>
           </ProjectSection>
         </MainContent>
       </Container>
