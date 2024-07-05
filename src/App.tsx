@@ -18,10 +18,13 @@ import { browserStorage } from "./services/localStorage";
 import { ApplicationStorage } from "./enum/applicationStorage";
 import { useEffect } from "react";
 import { commonStore } from "./store/commonStore";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const { PREFERENCE_THEME_COLOR, PREFERENCE_LANGUAGE } = ApplicationStorage;
 
 function App() {
+  const queryClient = new QueryClient();
+
   const { language, themeColor, updateThemeColor, updateLanguage } =
     preferencesStore();
   const { getFromStorage } = browserStorage();
@@ -75,8 +78,10 @@ function App() {
     >
       <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={isThemeLightSelected ? light : dark}>
-          <GlobalStyles />
-          <AppRouter />
+          <QueryClientProvider client={queryClient}>
+            <GlobalStyles />
+            <AppRouter />
+          </QueryClientProvider>
         </ThemeProvider>
       </I18nextProvider>
     </ChakraProvider>
