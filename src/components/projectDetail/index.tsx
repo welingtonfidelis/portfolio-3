@@ -1,4 +1,6 @@
 import Slider, { Settings, CustomArrowProps } from "react-slick";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import { Modal } from "../modal";
 import {
   ActionContent,
@@ -28,8 +30,8 @@ export const ProjectDetail = (props: Props) => {
           background: "black",
           borderRadius: "50%",
           height: "19px",
-          marginRight: '1rem',
-          zIndex: 99
+          marginRight: "1rem",
+          zIndex: 99,
         }}
         onClick={onClick}
       />
@@ -47,8 +49,8 @@ export const ProjectDetail = (props: Props) => {
           background: "black",
           borderRadius: "50%",
           height: "19px",
-          marginLeft: '1rem',
-          zIndex: 99
+          marginLeft: "1rem",
+          zIndex: 99,
         }}
         onClick={onClick}
       />
@@ -65,7 +67,7 @@ export const ProjectDetail = (props: Props) => {
     prevArrow: <SamplePrevArrow />,
   };
 
-  const ExtraACtionButtons = ( ) => (
+  const ExtraACtionButtons = () => (
     <ActionContent>
       <a
         title={t("projects.tooltip_github")}
@@ -100,7 +102,16 @@ export const ProjectDetail = (props: Props) => {
             {project.images.map((imageUrl, index) => {
               return (
                 <ImageContent key={index}>
-                  <img src={imageUrl} alt={`${project.title}_image`} />
+                  <LazyLoadImage
+                    src={imageUrl}
+                    alt={`${project.title}_image`}
+                    placeholder={<img src="/images/cloud-low-quality.jpg" />}
+                    effect="blur"
+                    onError={({ currentTarget }) => {
+                      currentTarget.onerror = null; // prevents looping
+                      currentTarget.src = "/images/cloud.png";
+                    }}
+                  />
                 </ImageContent>
               );
             })}
@@ -108,8 +119,20 @@ export const ProjectDetail = (props: Props) => {
         </DetailContent>
       </Modal>
 
-      <PreviewContent onClick={() => setIsModalOpen(true)} title={project.title}>
-        <img src={project.images?.[0] ?? ""} alt="" width="80px" />
+      <PreviewContent
+        onClick={() => setIsModalOpen(true)}
+        title={project.title}
+      >
+        <LazyLoadImage
+          src={project.images?.[0] ?? ""}
+          alt={`${project.title}_image`}
+          placeholder={<img src="/images/cloud-low-quality.jpg" />}
+          effect="blur"
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src = "/images/cloud.png";
+          }}
+        />
       </PreviewContent>
     </Container>
   );
