@@ -241,7 +241,7 @@ export const ProjectSectionContainer = styled.div`
   gap: 12px;
   margin: 2rem 0;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     grid-template-columns: repeat(2, 1fr);
   }
 

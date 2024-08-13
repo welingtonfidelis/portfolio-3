@@ -8,8 +8,6 @@ import { light, dark } from "./config/styles/styled-component-theme";
 import { theme } from "./config/styles/chackra-ui-theme";
 
 import "./global.styles.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import { GlobalStyles } from "./global.styles";
 import { preferencesStore } from "./store/preferences";

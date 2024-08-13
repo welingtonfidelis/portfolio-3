@@ -293,11 +293,9 @@ export const Home = () => {
 
             <Preloader isLoading={isLoadingProjects}>
               <ProjectSectionContainer>
-                {
-                  projects?.map((item, index) => (
-                    <ProjectDetail project={item} key={index} />
-                  ))
-                }
+                {projects?.map((item, index) => (
+                  <ProjectDetail project={item} key={index} />
+                ))}
               </ProjectSectionContainer>
             </Preloader>
           </ProjectSection>
