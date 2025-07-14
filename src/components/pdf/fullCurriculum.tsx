@@ -2,6 +2,7 @@ import {
   Document,
   Image,
   Page,
+  // PDFViewer,
   StyleSheet,
   Text,
   View,
@@ -9,6 +10,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { EducationInterface } from "../../domains/Education";
 import { JobInterface } from "../../domains/Job";
+import { HardSkillInterface } from "../../domains/HardSkills";
 
 export const FullCurriculum = () => {
   const { t } = useTranslation();
@@ -139,130 +141,156 @@ export const FullCurriculum = () => {
       color: colorTheme.secondary,
       marginBottom: "10px",
     },
+    hardSkillItemContent: {
+      display: "flex",
+      flexDirection: "row",
+    },
+    hardSkillItemDescription: {
+      fontFamily: "Helvetica-Bold",
+    },
   });
 
   const Br = () => "\n";
 
   return (
     // <PDFViewer style={{ width: "100vw", height: "100vh" }}>
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.sectionLeft}>
-          <Image
-            style={styles.profileImage}
-            src={"/images/user_1.jpg"}
-          />
+      <Document>
+        <Page size="A4" style={styles.page}>
+          <View style={styles.sectionLeft}>
+            <Image style={styles.profileImage} src={"/images/user_1.jpg"} />
 
-          <Text style={styles.profileName} wrap>
-            {t("about_me.name")}
-          </Text>
+            <Text style={styles.profileName} wrap>
+              {t("about_me.name")}
+            </Text>
 
-          <Text style={styles.profileAbout} wrap>
-            {t("about_me.office")}
-          </Text>
+            <Text style={styles.profileAbout} wrap>
+              {t("about_me.office")}
+            </Text>
 
-          <Text style={styles.horizontalSeparator} />
+            <Text style={styles.horizontalSeparator} />
 
-          <View style={styles.contactContent}>
-            <Text style={styles.sectionLeftTitle}>{t("contact.subtitle")}</Text>
+            <View style={styles.contactContent}>
+              <Text style={styles.sectionLeftTitle}>
+                {t("contact.subtitle")}
+              </Text>
 
-            <View style={styles.leftSubListContent}>
-              <Text style={styles.contactText}>{t("phone")}</Text>
-              <Text style={styles.contactText}>{t("email")}</Text>
-              <Text style={styles.contactText}>{t("site")}</Text>
-              <Text style={styles.contactText}>{t("linkedin")}</Text>
-              <Text style={styles.contactText}>{t("github")}</Text>
-              <Text style={styles.contactText}>{t("location")}</Text>
+              <View style={styles.leftSubListContent}>
+                <Text style={styles.contactText}>{t("phone")}</Text>
+                <Text style={styles.contactText}>{t("email")}</Text>
+                <Text style={styles.contactText}>{t("site")}</Text>
+                <Text style={styles.contactText}>{t("linkedin")}</Text>
+                <Text style={styles.contactText}>{t("github")}</Text>
+                <Text style={styles.contactText}>{t("location")}</Text>
+              </View>
+            </View>
+
+            <View style={styles.educationContent}>
+              <Text style={styles.sectionLeftTitle}>
+                {t("education.title")}
+              </Text>
+
+              <View style={styles.leftSubListContent}>
+                {(
+                  t("education.list", {
+                    returnObjects: true,
+                  }) as EducationInterface[]
+                ).map((item, index) => (
+                  <View key={index}>
+                    <Text style={styles.educationDateText}>
+                      {item.start} - {item.end}
+                    </Text>
+                    <Text style={styles.educationCourseText}>{item.title}</Text>
+                    <Text style={styles.educationInstitutionText}>
+                      {item.institution}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+
+            <View style={styles.languageContent}>
+              <Text style={styles.sectionLeftTitle}>{t("language.title")}</Text>
+
+              <View style={styles.leftSubListContent}>
+                <Text style={styles.languageText}>
+                  {t("language.portuguese")}: {t("language.portuguese_level")}
+                </Text>
+
+                <Text style={styles.languageText}>
+                  {t("language.english")}: {t("language.english_level")}
+                </Text>
+              </View>
             </View>
           </View>
 
-          <View style={styles.educationContent}>
-            <Text style={styles.sectionLeftTitle}>{t("education.title")}</Text>
+          <View style={styles.sectionRight}>
+            <Text style={styles.sectionRightTitle}>{t("about_me.title")}</Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_1")}
+            </Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_2")}
+            </Text>
+            <Text style={styles.aboutDescription}>
+              {t("about_me.description_part_3")}
+            </Text>
 
-            <View style={styles.leftSubListContent}>
-              {(
-                t("education.list", {
-                  returnObjects: true,
-                }) as EducationInterface[]
-              ).map((item, index) => (
-                <View key={index}>
-                  <Text style={styles.educationDateText}>
+            <Text style={styles.sectionRightTitle}>{t("services.title")}</Text>
+            {(
+              t("services.list", {
+                returnObjects: true,
+              }) as JobInterface[]
+            ).map((item, index) => (
+              <View style={styles.serviceContent} key={index}>
+                <View style={styles.serviceSectionLeftContent}>
+                  <Text style={styles.serviceSectionLeftText}>
                     {item.start} - {item.end}
                   </Text>
-                  <Text style={styles.educationCourseText}>{item.title}</Text>
-                  <Text style={styles.educationInstitutionText}>
-                    {item.institution}
+                  <Text style={styles.serviceSectionLeftText}>
+                    {item.company_name}
                   </Text>
                 </View>
-              ))}
-            </View>
-          </View>
 
-          <View style={styles.languageContent}>
-            <Text style={styles.sectionLeftTitle}>{t("language.title")}</Text>
+                <View style={styles.serviceSectionRightContent}>
+                  <Text style={styles.serviceSectionRightTitle}>
+                    {item.position}
+                  </Text>
+                  <Text>{t(item.description)}</Text>
 
-            <View style={styles.leftSubListContent}>
-              <Text style={styles.languageText}>
-                {t("language.portuguese")} - {t("language.portuguese_level")}
-              </Text>
+                  {item.technologies && (
+                    <>
+                      <Text>
+                        <Br />
+                      </Text>
 
-              <Text style={styles.languageText}>
-                {t("language.english")} - {t("language.english_level")}
-              </Text>
-            </View>
-          </View>
-        </View>
+                      <Text>{t("technologies_contact")}:</Text>
+                      <Text>{item.technologies}</Text>
+                    </>
+                  )}
+                </View>
+              </View>
+            ))}
 
-        <View style={styles.sectionRight}>
-          <Text style={styles.sectionRightTitle}>{t("about_me.title")}</Text>
-          <Text style={styles.aboutDescription}>
-            {t("about_me.description_part_1")}
-          </Text>
-          <Text style={styles.aboutDescription}>
-            {t("about_me.description_part_2")}
-          </Text>
-          <Text style={styles.aboutDescription}>
-            {t("about_me.description_part_3")}
-          </Text>
-
-          <Text style={styles.sectionRightTitle}>{t("services.title")}</Text>
-          {(
-            t("services.list", {
-              returnObjects: true,
-            }) as JobInterface[]
-          ).map((item, index) => (
-            <View style={styles.serviceContent} key={index}>
-              <View style={styles.serviceSectionLeftContent}>
-                <Text style={styles.serviceSectionLeftText}>
-                  {item.start} - {item.end}
-                </Text>
-                <Text style={styles.serviceSectionLeftText}>
-                  {item.company_name}
+            <Text style={styles.sectionRightTitle}>
+              {t("hard_skills.title")}
+            </Text>
+            {(
+              t("hard_skills.list", {
+                returnObjects: true,
+              }) as HardSkillInterface[]
+            ).map((item, index) => (
+              <View style={styles.hardSkillItemContent} key={index}>
+                <Text>
+                  {item.title}:<Text> </Text>
+                  <Text style={styles.hardSkillItemDescription}>
+                    {t(item.description)}
+                  </Text>
                 </Text>
               </View>
-
-              <View style={styles.serviceSectionRightContent}>
-                <Text style={styles.serviceSectionRightTitle}>
-                  {item.position}
-                </Text>
-                <Text>{t(item.description)}</Text>
-
-                {item.technologies && (
-                  <>
-                    <Text>
-                      <Br />
-                    </Text>
-
-                    <Text>{t("technologies_contact")}:</Text>
-                    <Text>{item.technologies}</Text>
-                  </>
-                )}
-              </View>
-            </View>
-          ))}
-        </View>
-      </Page>
-    </Document>
+            ))}
+          </View>
+        </Page>
+      </Document>
     // </PDFViewer>
   );
 };
