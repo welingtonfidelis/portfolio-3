@@ -28,6 +28,11 @@ import {
   CvContent,
   TopBarContent,
   MenuLanguageContent,
+  HardSkillContainer,
+  HardSkillItemContent,
+  HardSkillItemTitle,
+  HardSkillItemDescription,
+  ServiceSectionTechnologies,
 } from "./styles";
 import { FullCurriculum } from "../../components/pdf/fullCurriculum";
 import { SimpleCurriculum } from "../../components/pdf/simpleCurriculum";
@@ -40,6 +45,7 @@ import { Language } from "../../enum/language";
 import { preferencesStore } from "../../store/preferences";
 import { ApplicationStorage } from "../../enum/applicationStorage";
 import { browserStorage } from "../../services/localStorage";
+import { HardSkillInterface } from "../../domains/HardSkills";
 
 const { PREFERENCE_LANGUAGE } = ApplicationStorage;
 
@@ -127,7 +133,7 @@ export const Curriculum = () => {
               <MenuItem>
                 <PDFDownloadLink
                   document={<FullCurriculum />}
-                  fileName="welington_fidelis_cv.pdf"
+                  fileName="welington_fidelis_full_cv.pdf"
                 >
                   {({ loading }) =>
                     loading ? t("generic.text_loading") : t("full_curriculum")
@@ -154,13 +160,9 @@ export const Curriculum = () => {
           <ProfileImage>
             <img src={"/images/user_1.jpg"} alt="" />
           </ProfileImage>
-
           <ProfileName>{t("about_me.name")}</ProfileName>
-
           <ProfileAbout>{t("about_me.office")}</ProfileAbout>
-
           <HorizontalSeparator />
-
           <SectionLeftTitle>{t("contact.subtitle")}</SectionLeftTitle>
           <ContactContent>
             <span>{t("phone")}</span>
@@ -193,14 +195,13 @@ export const Curriculum = () => {
           </EducationContainer>
 
           <SectionLeftTitle>{t("language.title")}</SectionLeftTitle>
-
           <LanguageContainer>
             <LanguageText>
-              {t("language.portuguese")} - {t("language.portuguese_level")}
+              {t("language.portuguese")}: {t("language.portuguese_level")}
             </LanguageText>
 
             <LanguageText>
-              {t("language.english")} - {t("language.english_level")}
+              {t("language.english")}: {t("language.english_level")}
             </LanguageText>
           </LanguageContainer>
         </SectionLeft>
@@ -240,16 +241,31 @@ export const Curriculum = () => {
                 <span>{item.description}</span>
 
                 {item.technologies && (
-                  <>
-                    <br />
-
+                  <ServiceSectionTechnologies>
                     <span>{t("technologies_contact")}:</span>
                     <span>{item.technologies}</span>
-                  </>
+                  </ServiceSectionTechnologies>
                 )}
               </ServiceSectionRightContent>
             </ServiceContent>
           ))}
+
+          <SectionRightTitle>{t("hard_skills.title")}</SectionRightTitle>
+          <HardSkillContainer>
+            {(
+              t("hard_skills.list", {
+                returnObjects: true,
+              }) as HardSkillInterface[]
+            ).map((item, index) => (
+              <HardSkillItemContent key={index}>
+                <HardSkillItemTitle>{item.title}:</HardSkillItemTitle>
+
+                <HardSkillItemDescription>
+                  {item.description}
+                </HardSkillItemDescription>
+              </HardSkillItemContent>
+            ))}
+          </HardSkillContainer>
         </SectionRight>
       </CvContent>
     </Container>

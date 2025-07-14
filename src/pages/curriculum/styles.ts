@@ -128,6 +128,25 @@ export const EducationInstitutionText = styled.span`
   margin-bottom: 6px;
 `;
 
+export const HardSkillContainer = styled.div`
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HardSkillItemContent = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const HardSkillItemTitle = styled.span`
+  margin-right: 0.3rem;
+`;
+
+export const HardSkillItemDescription = styled.span`
+  font-weight: 700;
+`;
+
 export const LanguageContainer = styled.div`
   margin-left: 0.5rem;
   font-size: 14px;
@@ -194,4 +213,10 @@ export const ServiceSectionRightTitle = styled.span`
   text-transform: uppercase;
   color: ${colorTheme.secondary};
   margin-bottom: 10px;
+`;
+
+export const ServiceSectionTechnologies = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
 `;
