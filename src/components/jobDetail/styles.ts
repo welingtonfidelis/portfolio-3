@@ -16,7 +16,7 @@ export const Container = styled.div`
 
   & h2 {
     font-size: 1.1em;
-    margin-top: 20px;
+    margin-top: 1rem;
     margin-bottom: 10px;
     font-weight: 600;
     color: ${(props) => props.theme.colors.primary};
@@ -29,3 +29,8 @@ export const Container = styled.div`
     text-align: center;
   }
 `;
+
+export const CompanyName = styled.span`
+  font-size: 1.2rem;
+  margin-top: .5rem;
+`

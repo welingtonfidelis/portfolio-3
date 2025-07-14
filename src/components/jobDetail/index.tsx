@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { CompanyName, Container } from "./styles";
 import { Props } from "./types";
 
 import { useTranslation } from "react-i18next";
@@ -10,6 +10,7 @@ export const JobDetail = (props: Props) => {
   return (
     <Container>
       <img loading="lazy" src={job.image_url} alt={job.position + "_image"} />
+      <CompanyName>{t(job.company_name)}</CompanyName>
       <h2>{t(job.position)}</h2>
 
       <span>{t(job.description)}</span>
