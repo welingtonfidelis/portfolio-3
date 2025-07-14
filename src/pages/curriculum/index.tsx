@@ -135,9 +135,7 @@ export const Curriculum = () => {
                   document={<FullCurriculum />}
                   fileName="welington_fidelis_full_cv.pdf"
                 >
-                  {({ loading }) =>
-                    loading ? t("generic.text_loading") : t("full_curriculum")
-                  }
+                  {t("full_curriculum")}
                 </PDFDownloadLink>
               </MenuItem>
               <MenuItem>
@@ -145,9 +143,7 @@ export const Curriculum = () => {
                   document={<SimpleCurriculum />}
                   fileName="welington_fidelis_cv.pdf"
                 >
-                  {({ loading }) =>
-                    loading ? t("generic.text_loading") : t("simple_curriculum")
-                  }
+                  {t("simple_curriculum")}
                 </PDFDownloadLink>
               </MenuItem>
             </MenuList>
