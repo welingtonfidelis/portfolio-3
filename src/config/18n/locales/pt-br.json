@@ -28,6 +28,23 @@
     "description_part_3": "Estou sempre com algum projeto e ideias me motiviando a estudar e praticar, eu amo me sentir produtivo, então se tem algo que queira conversar, vamos fazer acontecer, me chama, vou adorar contribuir e ajudar.",
     "view_cv": "Veja meu CV"
   },
+  "hard_skills": {
+    "title": "Habilidades Técnicas",
+    "list": [
+      {
+        "title": "Linguagens",
+        "description": "Javascript, Typescript, Dart, PHP"
+      },
+      {
+        "title": "Frameworks",
+        "description": "React, Node.js, Flutter, Ionic"
+      },
+      {
+        "title": "Banco de Dados",
+        "description": "PostgreSQL, MongoDB, Redis"
+      }
+    ]
+  },
   "services": {
     "title": "Experiências",
     "description": "Essas são algumas experiências que ganhei trabalhando com tecnologia até agora.",
@@ -37,8 +54,8 @@
         "company_name": "Venturus",
         "position": "Desenvolvedor Full-Stack",
         "start": "2021",
-        "end": "Atual",
-        "description": "No Venturus, trabalhando nos times de Back-End e Front-End em projetos para clientes nacionais e internacionais, construídos em Node.js e React.",
+        "end": "2025",
+        "description": "Atuação em projetos nacionais e internacionais com tecnologias modernas. Participação em times ágeis de Front-End e Back-End.",
         "technologies": "Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Scrum"
       },
       {
@@ -47,7 +64,7 @@
         "position": "Desenvolvedor Back-End",
         "start": "2020",
         "end": "2021",
-        "description": "Na Tech4Humans Brasil, trabalhando no t ime de Back-End em um projeto de mensageria em tempo real para atendimento humanizado, construído em Node.js e React.",
+        "description": "Desenvolvimento de sistema de mensageria em tempo real para atendimento humanizado.",
         "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
       },
       {
@@ -56,8 +73,8 @@
         "position": "Desenvolvedor Full-Stack",
         "start": "2018",
         "end": "2020",
-        "description": "Na Ranor Rastreamento, trabalhando no Back-End, Front-End e Mobile em projetos focados no rastreamento veícular, gerenciamento de frota e logística, construídos em Node.js, PHP e IONIC.",
-        "technologies": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description": "Desenvolvimento de soluções web e mobile para rastreamento de veículos e logística.",
+        "technologies": "PHP - Angular - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
@@ -65,7 +82,7 @@
         "position": "Técnico em Informática",
         "start": "2009",
         "end": "2018",
-        "description": "Como técnico em informática, trabalhei em algumas empresa e como autônomo, atuando com manutenção de computadores, notebooks, infraestrutura de rede e atendimento ao cliente."
+        "description": "Manutenção de computadores, redes e suporte técnico em empresas e atendimentos domiciliares."
       }
     ]
   },
@@ -103,7 +120,7 @@
   },
   "objective": {
     "title": "Objetivo",
-    "description": "Busco uma oportunidade desafiadora como desenvolvedor web, onde eu possa aplicar minha experiência tanto no front-end quanto no back-end para contribuir com o crescimento e sucesso da empresa. Estou comprometido em aprender novas tecnologias e aprimorar minhas habilidades constantemente, buscando excelência na entrega de soluções e impulsionando a inovação no desenvolvimento de software."
+    "description": "Desenvolvedor Web ou Mobile com experiência em front-end e back-end, buscando oportunidades desafiadoras para aplicar e expandir minhas habilidades em projetos modernos e inovadores. Comprometido com aprendizado contínuo, boas práticas de código e entregas de qualidade."
   },
   "not_found": {
     "title_message": "Oops!",

@@ -28,6 +28,23 @@
     "description_part_3": "I'm always with some project and ideas motivating me to study and practise, I love feeling productive, so if there's something you want to discuss, do make it happen, talk to me, I'd love to contribute and help.",
     "view_cv": "View my CV"
   },
+  "hard_skills": {
+    "title": "Technical Skills",
+    "list": [
+      {
+        "title": "Languages",
+        "description": "JavaScript, TypeScript, Dart, PHP"
+      },
+      {
+        "title": "Frameworks",
+        "description": "React, Node.js, Flutter, Ionic"
+      },
+      {
+        "title": "Databases",
+        "description": "PostgreSQL, MongoDB, Redis"
+      }
+    ]
+  },
   "services": {
     "title": "Experiences",
     "description": "These are some experience I won working with technology until now.",
@@ -37,8 +54,8 @@
         "company_name": "Venturus",
         "position": "Full-Stack Developer",
         "start": "2021",
-        "end": "Present",
-        "description": "At Venturus, working in the Back-End and Front-End teams on projects for national and international clients, built in Node.js and React.",
+        "end": "2025",
+        "description": "Worked on national and international projects using modern technologies. Participated in agile Front-End and Back-End teams.",
         "technologies": "Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
       },
       {
@@ -47,7 +64,7 @@
         "position": "Back-End Developer",
         "start": "2020",
         "end": "2021",
-        "description": "At Tech4Humans Brasil, working in the Back-End team on a project focused on real-time messenger for human care, build in Node.js and React.",
+        "description": "Developed a real-time messaging system focused on human-centered service.",
         "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
       },
       {
@@ -56,8 +73,8 @@
         "position": "Full-Stack Developer",
         "start": "2018",
         "end": "2020",
-        "description": "At Ranor Rastreamento, working in Back-End, Front-End and Mobile projects focused on vehicle tracking, fleet management and transport logistics, built in Node.js, PHP and IONIC.",
-        "technologies": "PHP - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description": "Developed web and mobile solutions for vehicle tracking and logistics.",
+        "technologies": "PHP - Angular - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
@@ -103,7 +120,7 @@
   },
   "objective": {
     "title": "Objective",
-    "description": "I am seeking a challenging opportunity as a web developer, where I can apply my experience in both front-end and back-end to contribute to the growth and success of the company. I am committed to learning new technologies and continuously enhancing my skills, striving for excellence in delivering solutions and driving innovation in software development."
+    "description": "Web or Mobile Developer with experience in both front-end and back-end, seeking challenging opportunities to apply and expand my skills in modern and innovative projects. Committed to continuous learning, clean code practices, and delivering high-quality solutions."
   },
   "not_found": {
     "title_message": "Oops!",
