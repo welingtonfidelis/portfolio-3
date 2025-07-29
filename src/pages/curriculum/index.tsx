@@ -133,7 +133,7 @@ export const Curriculum = () => {
               <MenuItem>
                 <PDFDownloadLink
                   document={<FullCurriculum />}
-                  fileName="welington_fidelis_full_cv.pdf"
+                  fileName={`welington_fidelis_full_cv_${language}.pdf`}
                 >
                   {t("full_curriculum")}
                 </PDFDownloadLink>
@@ -141,7 +141,7 @@ export const Curriculum = () => {
               <MenuItem>
                 <PDFDownloadLink
                   document={<SimpleCurriculum />}
-                  fileName="welington_fidelis_cv.pdf"
+                  fileName={`welington_fidelis_cv_${language}.pdf`}
                 >
                   {t("simple_curriculum")}
                 </PDFDownloadLink>
