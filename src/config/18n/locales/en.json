@@ -74,7 +74,7 @@
         "start": "2018",
         "end": "2020",
         "description": "Developed web and mobile solutions for vehicle tracking and logistics.",
-        "technologies": "PHP - Angular - IONIC - React - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "technologies": "PHP - Angular - IONIC - React - React Native - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
       },
       {
         "image_url": "/images/icon-2.png",
