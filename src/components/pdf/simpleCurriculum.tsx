@@ -63,9 +63,17 @@ export const SimpleCurriculum = () => {
       marginBottom: "8px",
       fontSize: "9px",
     },
+    serviceSectionJobDetailContainer: {
+      marginTop: 10,
+    },
     hardSkillItemContent: {
       display: "flex",
       flexDirection: "row",
+    },
+    listContent: {
+      flexDirection: "row",
+      alignItems: "flex-start",
+      marginBottom: 4,
     },
   });
 
@@ -73,85 +81,97 @@ export const SimpleCurriculum = () => {
 
   return (
     // <PDFViewer style={{ width: "100vw", height: "100vh" }}>
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <Text style={styles.profileName}>{t("about_me.name")}</Text>
-        <Text style={styles.contactInfo}>
-          {t("phone")} | {t("email")} | {t("site")} | {t("linkedin")} |{" "}
-          {t("location")}
-        </Text>
+      <Document>
+        <Page size="A4" style={styles.page}>
+          <Text style={styles.profileName}>{t("about_me.name")}</Text>
+          <Text style={styles.contactInfo}>
+            {t("phone")} | {t("email")} | {t("site")} | {t("linkedin")} |{" "}
+            {t("location")}
+          </Text>
 
-        <Text style={styles.sectionTitle}>{t("objective.title")}</Text>
-        <Text>{t("objective.description")}</Text>
+          <Text style={styles.sectionTitle}>{t("objective.title")}</Text>
+          <Text>{t("objective.description")}</Text>
 
-        <Text style={styles.sectionTitle}>{t("services.title")}</Text>
-        {(
-          t("services.list", {
-            returnObjects: true,
-          }) as JobInterface[]
-        ).map((item, index) => (
-          <View style={styles.serviceContent} key={index}>
-            <Text style={styles.serviceDateText}>
-              {item.start} - {item.end}
-            </Text>
-            <Text style={styles.servicePositionText}>
-              {item.position} | {item.company_name}
-            </Text>
+          <Text style={styles.sectionTitle}>{t("services.title")}</Text>
+          {(
+            t("services.list", {
+              returnObjects: true,
+            }) as JobInterface[]
+          ).map((item, index) => (
+            <View style={styles.serviceContent} key={index}>
+              <Text style={styles.serviceDateText}>
+                {item.start} - {item.end}
+              </Text>
+              <Text style={styles.servicePositionText}>
+                {item.position} | {item.company_name}
+              </Text>
 
-            <Text>{item.description}</Text>
+              <Text>{t(item.job_resume ?? item.description)}</Text>
 
-            {item.technologies && (
-              <>
-                <Text>
-                  <Br />
-                </Text>
+              {item.job_list && (
+                <View style={styles.serviceSectionJobDetailContainer}>
+                  {item.job_list?.map((jobDetail) => {
+                    return (
+                      <View style={styles.listContent}>
+                        <Text>- {t(jobDetail)}</Text>
+                      </View>
+                    );
+                  })}
+                </View>
+              )}
 
-                <Text>{t(item.technologies)}</Text>
-              </>
-            )}
-            <Text>
-              <Br />
-            </Text>
-          </View>
-        ))}
+              {item.technologies && (
+                <>
+                  <Text>
+                    <Br />
+                  </Text>
 
-        <Text style={styles.sectionTitle}>{t("education.title")}</Text>
-        {(
-          t("education.list", {
-            returnObjects: true,
-          }) as EducationInterface[]
-        ).map((item, index) => (
-          <View key={index}>
-            <Text>
-              {item.title} | {item.start} - {item.end}
-            </Text>
-            <Text>{item.institution}</Text>
-          </View>
-        ))}
+                  <Text>{t(item.technologies)}</Text>
+                </>
+              )}
+              <Text>
+                <Br />
+              </Text>
+            </View>
+          ))}
 
-        <Text style={styles.sectionTitle}>{t("language.title")}</Text>
-        <Text>
-          - {t("language.portuguese")}: {t("language.portuguese_level")}
-        </Text>
+          <Text style={styles.sectionTitle}>{t("education.title")}</Text>
+          {(
+            t("education.list", {
+              returnObjects: true,
+            }) as EducationInterface[]
+          ).map((item, index) => (
+            <View key={index}>
+              <Text>
+                {item.title} | {item.start} - {item.end}
+              </Text>
+              <Text>{item.institution}</Text>
+            </View>
+          ))}
 
-        <Text>
-          - {t("language.english")}: {t("language.english_level")}
-        </Text>
+          <Text style={styles.sectionTitle}>{t("language.title")}</Text>
+          <Text>
+            - {t("language.portuguese")}: {t("language.portuguese_level")}
+          </Text>
 
-        <Text style={styles.sectionTitle}>{t("hard_skills.title")}</Text>
-        {(
-          t("hard_skills.list", {
-            returnObjects: true,
-          }) as HardSkillInterface[]
-        ).map((item, index) => (
-          <View style={styles.hardSkillItemContent} key={index}>
-            <Text>
-              {item.title}: {t(item.description)}
-            </Text>
-          </View>
-        ))}
-      </Page>
-    </Document>
+          <Text>
+            - {t("language.english")}: {t("language.english_level")}
+          </Text>
+
+          <Text style={styles.sectionTitle}>{t("hard_skills.title")}</Text>
+          {(
+            t("hard_skills.list", {
+              returnObjects: true,
+            }) as HardSkillInterface[]
+          ).map((item, index) => (
+            <View style={styles.hardSkillItemContent} key={index}>
+              <Text>
+                {item.title}: {t(item.description)}
+              </Text>
+            </View>
+          ))}
+        </Page>
+      </Document>
     // </PDFViewer>
   );
 };

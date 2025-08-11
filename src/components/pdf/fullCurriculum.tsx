@@ -43,7 +43,7 @@ export const FullCurriculum = () => {
       color: colorTheme.background_b,
       display: "flex",
       flexDirection: "column",
-      maxWidth: "215px",
+      width: "215px",
     },
     profileImage: {
       marginHorizontal: "auto",
@@ -141,12 +141,20 @@ export const FullCurriculum = () => {
       color: colorTheme.secondary,
       marginBottom: "10px",
     },
+    serviceSectionJobDetailContainer: {
+      marginTop: 10,
+    },
     hardSkillItemContent: {
       display: "flex",
       flexDirection: "row",
     },
     hardSkillItemDescription: {
       fontFamily: "Helvetica-Bold",
+    },
+    listContent: {
+      flexDirection: "row",
+      alignItems: "flex-start",
+      marginBottom: 4,
     },
   });
 
@@ -255,7 +263,20 @@ export const FullCurriculum = () => {
                   <Text style={styles.serviceSectionRightTitle}>
                     {item.position}
                   </Text>
-                  <Text>{t(item.description)}</Text>
+
+                  <Text>{t(item.job_resume ?? item.description)}</Text>
+
+                  {item.job_list && (
+                    <View style={styles.serviceSectionJobDetailContainer}>
+                      {item.job_list?.map((jobDetail) => {
+                        return (
+                          <View style={styles.listContent}>
+                            <Text>- {t(jobDetail)}</Text>
+                          </View>
+                        );
+                      })}
+                    </View>
+                  )}
 
                   {item.technologies && (
                     <>
