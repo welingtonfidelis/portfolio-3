@@ -55,8 +55,14 @@
         "position": "Desenvolvedor Full-Stack",
         "start": "2021",
         "end": "2025",
-        "description": "Atuação em projetos nacionais e internacionais com tecnologias modernas. Participação em times ágeis de Front-End e Back-End.",
-        "technologies": "Node.js - React - JavaScript - TypeScript - Testes automatizados - Docker - MySQL - PostgreSQL - Git - Scrum"
+        "description": "Atua no desenvolvimento de soluções tecnológicas sob medida, incluindo software, inteligência artificial e aplicativos web e mobile, apoiando empresas brasileiras e internacionais na inovação de seus produtos e serviços.",
+        "job_resume": "Atuei em projetos internacionais, desenvolvendo e mantendo soluções que otimizaram o uso de equipamentos e estações de teste em fábricas de grandes marcas globais.",
+        "job_list": [
+          "Colaborei em equipes front-end e back-end multiculturais, aplicando metodologias ágeis (Scrum, Kanban) e boas práticas de desenvolvimento, com foco em escalabilidade e usabilidade.",
+          "Utilizei ferramentas como Swagger para documentação de APIs e Storybook para padronização de componentes, acelerando o desenvolvimento e facilitando a manutenção.",
+          "Mentorei desenvolvedores juniores, auxiliando na análise de problemas e na entrega de código para solucioná-los da melhor forma."
+        ],
+        "technologies": "TypeScript - React - Node.js - REST APIs - GraphQL - Git - CI/CD - testes automatizados - metodologias ágeis (Scrum, Kanban)."
       },
       {
         "image_url": "/images/icon-1.png",
@@ -64,8 +70,14 @@
         "position": "Desenvolvedor Back-End",
         "start": "2020",
         "end": "2021",
-        "description": "Desenvolvimento de sistema de mensageria em tempo real para atendimento humanizado.",
-        "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
+        "description": "Startup especializada em plataforma de mensageria em tempo real que conecta grandes empresas a seus clientes, oferecendo um atendimento mais próximo, ágil e humanizado.",
+        "job_resume": "Participei da criação de uma plataforma de mensageria em tempo real, escalável e de baixo custo, voltada a grandes empresas com foco em atendimento humanizado.",
+        "job_list": [
+          "Atuei na arquitetura de serviços, incluindo filas de atendimento com Redis, estratégias de cache e resiliência de dados para garantir recuperação rápida após falhas.",
+          "Desenvolvi integrações com WhatsApp e Telegram usando REST e WebSockets, permitindo comunicação fluida e segura com usuários finais.",
+          "Trabalhei com arquitetura serverless e microserviços na Azure, garantindo escalabilidade durante picos de acesso e reduzindo custos operacionais fora do horário comercial."
+        ],
+        "technologies": "TypeScript - Node.js - Azure Functions - Serverless - REST APIs - Redis - banco de dados SQL - WebSockets - mensageria - microserviços - metodologias ágeis (Scrum, Kanban)."
       },
       {
         "image_url": "/images/icon-1.png",
@@ -73,8 +85,14 @@
         "position": "Desenvolvedor Full-Stack",
         "start": "2018",
         "end": "2020",
-        "description": "Desenvolvimento de soluções web e mobile para rastreamento de veículos e logística.",
-        "technologies": "PHP - Angular - IONIC - React - React Native - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "description": "Especializada em sistemas de rastreamento e gestão veicular, fornece ferramentas para monitoramento, controle e otimização de frotas e veículos particulares.",
+        "job_resume": "Atuei na reestruturação de sistemas de rastreamento veicular para processar alto volume de requisições de dispositivos instalados em veículos de frotas corporativas e uso pessoal.",
+        "job_list": [
+          "Liderei a migração de PHP para Node.js, eliminando memory leaks que exigiam reinicializações diárias e aumentando o uptime do sistema de 80% para 99%.",
+          "Implementei processamento paralelo (multicore), elevando a capacidade de requisições atendidas por segundo e reduzindo o tempo de resposta aos dispositivos em até 40%.",
+          "Mantive e evoluí aplicativos móveis em React Native para Android e iOS, otimizando performance e experiência do usuário."
+        ],
+        "technologies": "JavaScript - PHP - Node.js - Angular - React - React Native - Ionic - bancos de dados SQL e NoSQL - REST APIs - Android/iOS - arquitetura orientada a eventos."
       },
       {
         "image_url": "/images/icon-2.png",

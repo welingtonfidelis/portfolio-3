@@ -55,8 +55,14 @@
         "position": "Full-Stack Developer",
         "start": "2021",
         "end": "2025",
-        "description": "Worked on national and international projects using modern technologies. Participated in agile Front-End and Back-End teams.",
-        "technologies": "Node.js - React - JavaScript - TypeScript - Automated tests - Docker - MySQL - PostgreSQL - Git - Scrum"
+        "resume": "Specializes in developing customized technology solutions, including software, artificial intelligence, and web and mobile applications, helping Brazilian and international companies innovate their products and services.",
+        "job_resume": "Worked on international projects, developing and maintaining solutions that optimized the use of equipment and test stations in factories of major global brands.",
+        "job_list": [
+          "Collaborated with multicultural front-end and back-end teams, applying agile methodologies (Scrum, Kanban) and best development practices, focusing on scalability and usability.",
+          "Utilized tools such as Swagger for API documentation and Storybook for component standardization, accelerating development and improving maintainability.",
+          "Mentored junior developers, assisting in problem analysis and delivering high-quality code solutions."
+        ],
+        "technologies": "TypeScript - React - Node.js - REST APIs - GraphQL - Git - CI/CD - automated testing - agile methodologies (Scrum, Kanban)."
       },
       {
         "image_url": "/images/icon-1.png",
@@ -64,8 +70,14 @@
         "position": "Back-End Developer",
         "start": "2020",
         "end": "2021",
-        "description": "Developed a real-time messaging system focused on human-centered service.",
-        "technologies": "Node.js - Docker- PostgreSQL - Redis - Serverless - Git - Scrum"
+        "resume": "A startup specialized in real-time messaging platforms that connect large companies with their customers, delivering closer, faster, and more humanized customer service.",
+        "job_resume": "Contributed to the creation of a real-time, scalable, and cost-effective messaging platform designed for large companies focused on humanized customer service.",
+        "job_list": [
+          "Worked on service architecture, including support queues with Redis, caching strategies, and data resilience to ensure quick recovery after failures.",
+          "Developed integrations with WhatsApp and Telegram using REST and WebSockets, enabling smooth and secure communication with end users.",
+          "Implemented serverless and microservices architecture on Azure, ensuring scalability during peak traffic and reducing operational costs during off-peak hours."
+        ],
+        "technologies": "TypeScript - Node.js - Azure Functions - Serverless - REST APIs - Redis - SQL databases - WebSockets - messaging services - microservices - agile methodologies (Scrum, Kanban)."
       },
       {
         "image_url": "/images/icon-1.png",
@@ -73,8 +85,14 @@
         "position": "Full-Stack Developer",
         "start": "2018",
         "end": "2020",
-        "description": "Developed web and mobile solutions for vehicle tracking and logistics.",
-        "technologies": "PHP - Angular - IONIC - React - React Native - Node.js - HTML - CSS - JavaScript - Docker - PostgreSQL"
+        "resume": "Specialized in vehicle tracking and fleet management systems, providing tools for monitoring, controlling, and optimizing corporate fleets and private vehicles.",
+        "job_resume": "Worked in the restructuring of vehicle tracking systems to process a high volume of requests from devices installed in corporate and personal vehicles.",
+        "job_list": [
+          "Led the migration from PHP to Node.js, eliminating memory leaks that required daily restarts and increasing system uptime from 80% to 99%.",
+          "Implemented parallel (multicore) processing, increasing requests handled per second and reducing device response time by up to 40%.",
+          "Maintained and enhanced mobile applications in React Native for Android and iOS, optimizing performance and user experience."
+        ],
+        "technologies": "JavaScript - PHP - Node.js - Angular - React - React Native - Ionic - SQL and NoSQL databases - REST APIs - Android/iOS - event-driven architecture."
       },
       {
         "image_url": "/images/icon-2.png",
