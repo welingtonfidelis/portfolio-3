@@ -33,6 +33,7 @@ import {
   HardSkillItemTitle,
   HardSkillItemDescription,
   ServiceSectionTechnologies,
+  ServiceSectionJobDetailList,
 } from "./styles";
 import { FullCurriculum } from "../../components/pdf/fullCurriculum";
 import { SimpleCurriculum } from "../../components/pdf/simpleCurriculum";
@@ -82,6 +83,8 @@ export const Curriculum = () => {
     setOnStorage(PREFERENCE_LANGUAGE, lang);
   };
 
+  // return <SimpleCurriculum />;
+  
   return (
     <Container>
       <TopBarContent>
@@ -234,7 +237,15 @@ export const Curriculum = () => {
                 <ServiceSectionRightTitle>
                   {item.position}
                 </ServiceSectionRightTitle>
-                <span>{item.description}</span>
+                <span>{item.job_resume ?? item.description}</span>
+
+                {item.job_list && (
+                  <ServiceSectionJobDetailList>
+                    {item.job_list.map((itemDetail) => {
+                      return <li>{t(itemDetail)}</li>;
+                    })}
+                  </ServiceSectionJobDetailList>
+                )}
 
                 {item.technologies && (
                   <ServiceSectionTechnologies>

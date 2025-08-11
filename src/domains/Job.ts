@@ -5,5 +5,7 @@ export interface JobInterface {
   start: string;
   end: string;
   description: string;
+  job_resume?: string;
+  job_list?: string[];
   technologies?: string;
 }

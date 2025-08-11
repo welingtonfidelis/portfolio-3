@@ -13,15 +13,7 @@ export const JobDetail = (props: Props) => {
       <CompanyName>{t(job.company_name)}</CompanyName>
       <h2>{t(job.position)}</h2>
 
-      <span>{t(job.description)}</span>
-
-      {job.technologies && (
-        <>
-          <br />
-          <span>{t("technologies_contact")}:</span>
-          <span>{t(job.technologies)}</span>
-        </>
-      )}
+      <span>{t(job.job_resume ?? job.description)}</span>
     </Container>
   );
 };

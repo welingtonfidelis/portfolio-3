@@ -164,10 +164,10 @@ export const SectionRight = styled.div`
   background-color: ${colorTheme.background_b};
   color: ${colorTheme.primary};
   flex: 1;
-  padding: 0 2rem;
+  padding: 0 2rem 2rem 2rem;
 
   @media (max-width: 900px) {
-    padding: 0 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 `;
 
@@ -212,11 +212,16 @@ export const ServiceSectionRightContent = styled.div`
 export const ServiceSectionRightTitle = styled.span`
   text-transform: uppercase;
   color: ${colorTheme.secondary};
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
+`;
+
+export const ServiceSectionJobDetailList = styled.ul`
+  list-style-position: inside;
+  margin-top: 0.5rem;
 `;
 
 export const ServiceSectionTechnologies = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 `;
